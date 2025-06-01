@@ -38,8 +38,8 @@ const PopularMenu = () => {
         ))}
       </div>
 
-      <div>
-        <button className="btn btn-ghost">See More</button>
+      <div className="text-center mt-10">
+        <button className="btn btn-soft btn-lg btn-primary">See More</button>
       </div>
     </section>
   );
