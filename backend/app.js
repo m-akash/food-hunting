@@ -1,13 +1,18 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
-const menuRouter = require("./routers/menu.route");
 require("./config/db");
+
+const menuRouter = require("./routers/menu.route");
+const reviewRouter = require("./routers/reviews.route");
 
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
 app.use("/api/menu", menuRouter);
+
+app.use("/api/review", reviewRouter);
 
 app.get("/", (req, res) => {
   res.send("hello");
