@@ -95,8 +95,8 @@ const Navbar = () => {
           </ul>
         </div>
         <Link to="/" className="btn btn-ghost text-xl">
-          <span className="text-primary font-bold">Bistro</span>{" "}
-          <span className="font-semibold">Boss</span>
+          <span className="text-primary font-bold">Hunger</span>{" "}
+          <span className="font-semibold">Hub</span>
         </Link>
       </div>
 
