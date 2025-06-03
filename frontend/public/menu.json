@@ -4,7 +4,7 @@
         "name": "Avocado Dream",
         "desc": "Fresh vegetables tossed with hummus and tahini drizzle.",
         "image": "https://cristianonew.ukrdevs.com/wp-content/uploads/2016/08/product-3-370x247.jpg",
-        "category": "salad",
+        "category": "pizza",
         "price": 19.4
     },
     {
@@ -12,7 +12,7 @@
         "name": "Beef Ni\u00e7oise",
         "desc": "Shrimp, mango, and avocado on a bed of baby greens with lime vinaigrette.",
         "image": "https://cristianonew.ukrdevs.com/wp-content/uploads/2016/08/product-4-370x247.jpg",
-        "category": "salad",
+        "category": "todays-offer",
         "price": 13.8
     },
     {
@@ -20,7 +20,7 @@
         "name": "Avocado Dream",
         "desc": "Seared beef strips with arugula, cherry tomatoes, and feta cheese.",
         "image": "https://cristianonew.ukrdevs.com/wp-content/uploads/2016/08/product-4-370x247.jpg",
-        "category": "salad",
+        "category": "soup",
         "price": 10.21
     },
     {
@@ -28,7 +28,7 @@
         "name": "Vegan Bliss",
         "desc": "Grilled salmon with quinoa, baby spinach, and citrus dressing.",
         "image": "https://cristianonew.ukrdevs.com/wp-content/uploads/2016/08/product-1-370x247.jpg",
-        "category": "salad",
+        "category": "popular",
         "price": 14.37
     },
     {
@@ -36,7 +36,7 @@
         "name": "Haddock",
         "desc": "Chargrilled fresh tuna steak (served medium rare) on classic Ni\u00e7oise salad with French beans.",
         "image": "https://cristianonew.ukrdevs.com/wp-content/uploads/2016/08/product-3-370x247.jpg",
-        "category": "salad",
+        "category": "dessert",
         "price": 19.15
     },
     {
@@ -44,7 +44,7 @@
         "name": "Asian Crunch",
         "desc": "Fresh vegetables tossed with hummus and tahini drizzle.",
         "image": "https://cristianonew.ukrdevs.com/wp-content/uploads/2016/08/product-3-370x247.jpg",
-        "category": "salad",
+        "category": "dessert",
         "price": 13.93
     },
     {
@@ -52,7 +52,7 @@
         "name": "Vegan Bliss",
         "desc": "Seared beef strips with arugula, cherry tomatoes, and feta cheese.",
         "image": "https://cristianonew.ukrdevs.com/wp-content/uploads/2016/08/product-4-370x247.jpg",
-        "category": "salad",
+        "category": "dessert",
         "price": 15.91
     },
     {
@@ -60,7 +60,7 @@
         "name": "Vegan Bliss",
         "desc": "Fresh vegetables tossed with hummus and tahini drizzle.",
         "image": "https://cristianonew.ukrdevs.com/wp-content/uploads/2016/08/product-2-370x247.jpg",
-        "category": "salad",
+        "category": "popular",
         "price": 17.09
     },
     {
@@ -68,7 +68,7 @@
         "name": "Greek Classic",
         "desc": "Shrimp, mango, and avocado on a bed of baby greens with lime vinaigrette.",
         "image": "https://cristianonew.ukrdevs.com/wp-content/uploads/2016/08/product-2-370x247.jpg",
-        "category": "salad",
+        "category": "dessert",
         "price": 15.93
     },
     {
@@ -76,7 +76,7 @@
         "name": "Greek Classic",
         "desc": "Fresh vegetables tossed with hummus and tahini drizzle.",
         "image": "https://cristianonew.ukrdevs.com/wp-content/uploads/2016/08/product-3-370x247.jpg",
-        "category": "salad",
+        "category": "pizza",
         "price": 18.65
     },
     {
@@ -84,16 +84,8 @@
         "name": "Vegan Bliss",
         "desc": "Chargrilled fresh tuna steak (served medium rare) on classic Ni\u00e7oise salad with French beans.",
         "image": "https://cristianonew.ukrdevs.com/wp-content/uploads/2016/08/product-4-370x247.jpg",
-        "category": "salad",
+        "category": "todays-offer",
         "price": 10.31
-    },
-    {
-        "id": "552ba00c-ae46-40e0-b0e9-9c97dc5cf2cb",
-        "name": "Greek Classic",
-        "desc": "Fresh vegetables tossed with hummus and tahini drizzle.",
-        "image": "https://cristianonew.ukrdevs.com/wp-content/uploads/2016/08/product-2-370x247.jpg",
-        "category": "salad",
-        "price": 18.41
     },
     {
         "id": "d1c0531d-0659-46ea-8977-ad0c47de5cf4",
@@ -108,7 +100,7 @@
         "name": "Beef Ni\u00e7oise",
         "desc": "Grilled salmon with quinoa, baby spinach, and citrus dressing.",
         "image": "https://cristianonew.ukrdevs.com/wp-content/uploads/2016/08/product-3-370x247.jpg",
-        "category": "salad",
+        "category": "pizza",
         "price": 11.71
     },
     {
@@ -116,7 +108,7 @@
         "name": "Avocado Dream",
         "desc": "Classic Greek salad with olives, cucumber, and feta.",
         "image": "https://cristianonew.ukrdevs.com/wp-content/uploads/2016/08/product-3-370x247.jpg",
-        "category": "salad",
+        "category": "dessert",
         "price": 16.74
     },
     {
@@ -136,59 +128,27 @@
         "price": 11.98
     },
     {
-        "id": "706a4cef-f353-4403-b496-4d6bbc4e5e19",
-        "name": "Beef Ni\u00e7oise",
-        "desc": "Shrimp, mango, and avocado on a bed of baby greens with lime vinaigrette.",
-        "image": "https://cristianonew.ukrdevs.com/wp-content/uploads/2016/08/product-4-370x247.jpg",
-        "category": "salad",
-        "price": 13.55
-    },
-    {
-        "id": "cf68fc03-e2e2-4f78-845d-b21f986d2555",
-        "name": "Greek Classic",
-        "desc": "Shrimp, mango, and avocado on a bed of baby greens with lime vinaigrette.",
-        "image": "https://cristianonew.ukrdevs.com/wp-content/uploads/2016/08/product-3-370x247.jpg",
-        "category": "salad",
-        "price": 17.06
-    },
-    {
         "id": "0ae0d8a6-41d7-468f-856c-13b8f3fb17a5",
         "name": "Asian Crunch",
         "desc": "Spicy grilled chicken with corn, beans, and ranch dressing.",
         "image": "https://cristianonew.ukrdevs.com/wp-content/uploads/2016/08/product-3-370x247.jpg",
-        "category": "salad",
+        "category": "popular",
         "price": 13.18
-    },
-    {
-        "id": "d80118fb-1589-441d-9ff3-0fbec6ac6f58",
-        "name": "Grilled Salmon",
-        "desc": "Fresh vegetables tossed with hummus and tahini drizzle.",
-        "image": "https://cristianonew.ukrdevs.com/wp-content/uploads/2016/08/product-3-370x247.jpg",
-        "category": "salad",
-        "price": 17.51
     },
     {
         "id": "2bc5244b-4126-4bb7-af9e-d6bdecf407ec",
         "name": "Beef Ni\u00e7oise",
         "desc": "Fresh vegetables tossed with hummus and tahini drizzle.",
         "image": "https://cristianonew.ukrdevs.com/wp-content/uploads/2016/08/product-1-370x247.jpg",
-        "category": "salad",
+        "category": "todays-offer",
         "price": 11.22
-    },
-    {
-        "id": "31b96e54-56b2-4e01-a09a-21d06b38cc25",
-        "name": "Beef Ni\u00e7oise",
-        "desc": "Fresh vegetables tossed with hummus and tahini drizzle.",
-        "image": "https://cristianonew.ukrdevs.com/wp-content/uploads/2016/08/product-4-370x247.jpg",
-        "category": "salad",
-        "price": 16.54
     },
     {
         "id": "bd3e208c-7161-4595-8951-f20c544ad98f",
         "name": "Chicken Caesar",
         "desc": "Mixed greens with avocado, chickpeas, and balsamic vinaigrette.",
         "image": "https://cristianonew.ukrdevs.com/wp-content/uploads/2016/08/product-1-370x247.jpg",
-        "category": "salad",
+        "category": "dessert",
         "price": 15.63
     },
     {
@@ -196,7 +156,7 @@
         "name": "Chicken Caesar",
         "desc": "Fresh vegetables tossed with hummus and tahini drizzle.",
         "image": "https://cristianonew.ukrdevs.com/wp-content/uploads/2016/08/product-3-370x247.jpg",
-        "category": "salad",
+        "category": "soup",
         "price": 10.67
     },
     {
@@ -204,7 +164,7 @@
         "name": "Tuna Delight",
         "desc": "Grilled salmon with quinoa, baby spinach, and citrus dressing.",
         "image": "https://cristianonew.ukrdevs.com/wp-content/uploads/2016/08/product-1-370x247.jpg",
-        "category": "salad",
+        "category": "popular",
         "price": 18.03
     },
     {
@@ -212,7 +172,7 @@
         "name": "Greek Classic",
         "desc": "Chargrilled fresh tuna steak (served medium rare) on classic Ni\u00e7oise salad with French beans.",
         "image": "https://cristianonew.ukrdevs.com/wp-content/uploads/2016/08/product-3-370x247.jpg",
-        "category": "salad",
+        "category": "dessert",
         "price": 11.63
     },
     {
@@ -220,7 +180,7 @@
         "name": "Tuna Delight",
         "desc": "Classic Greek salad with olives, cucumber, and feta.",
         "image": "https://cristianonew.ukrdevs.com/wp-content/uploads/2016/08/product-4-370x247.jpg",
-        "category": "salad",
+        "category": "pizza",
         "price": 19.02
     },
     {
@@ -228,7 +188,7 @@
         "name": "Vegan Bliss",
         "desc": "Asian greens with sesame dressing and crispy wontons.",
         "image": "https://cristianonew.ukrdevs.com/wp-content/uploads/2016/08/product-1-370x247.jpg",
-        "category": "salad",
+        "category": "todays-offer",
         "price": 19.69
     },
     {
@@ -244,7 +204,7 @@
         "name": "Shrimp Fiesta",
         "desc": "Grilled salmon with quinoa, baby spinach, and citrus dressing.",
         "image": "https://cristianonew.ukrdevs.com/wp-content/uploads/2016/08/product-2-370x247.jpg",
-        "category": "salad",
+        "category": "todays-offer",
         "price": 15.66
     },
     {
@@ -260,47 +220,15 @@
         "name": "Haddock",
         "desc": "Crisp romaine with Caesar dressing, grilled chicken, croutons, and parmesan.",
         "image": "https://cristianonew.ukrdevs.com/wp-content/uploads/2016/08/product-2-370x247.jpg",
-        "category": "salad",
+        "category": "dessert",
         "price": 13.98
-    },
-    {
-        "id": "a1e8952c-3d9d-40b4-a85d-5417e0cba437",
-        "name": "Haddock",
-        "desc": "Seared beef strips with arugula, cherry tomatoes, and feta cheese.",
-        "image": "https://cristianonew.ukrdevs.com/wp-content/uploads/2016/08/product-2-370x247.jpg",
-        "category": "salad",
-        "price": 10.24
-    },
-    {
-        "id": "a3c2b92d-9080-43ec-9c65-8a40ecdda2a6",
-        "name": "Chicken Caesar",
-        "desc": "Mixed greens with avocado, chickpeas, and balsamic vinaigrette.",
-        "image": "https://cristianonew.ukrdevs.com/wp-content/uploads/2016/08/product-3-370x247.jpg",
-        "category": "salad",
-        "price": 16.8
-    },
-    {
-        "id": "cb25a017-15d8-493c-acbd-5bc78b5dce59",
-        "name": "Avocado Dream",
-        "desc": "Fresh vegetables tossed with hummus and tahini drizzle.",
-        "image": "https://cristianonew.ukrdevs.com/wp-content/uploads/2016/08/product-4-370x247.jpg",
-        "category": "salad",
-        "price": 13.64
-    },
-    {
-        "id": "9adea80e-3e76-4044-b800-af096bb287c3",
-        "name": "Vegan Bliss",
-        "desc": "Chargrilled fresh tuna steak (served medium rare) on classic Ni\u00e7oise salad with French beans.",
-        "image": "https://cristianonew.ukrdevs.com/wp-content/uploads/2016/08/product-3-370x247.jpg",
-        "category": "salad",
-        "price": 16.36
     },
     {
         "id": "2cb16d25-861e-4e03-ba98-e8a0de15a94a",
         "name": "Beef Ni\u00e7oise",
         "desc": "Chargrilled fresh tuna steak (served medium rare) on classic Ni\u00e7oise salad with French beans.",
         "image": "https://cristianonew.ukrdevs.com/wp-content/uploads/2016/08/product-2-370x247.jpg",
-        "category": "salad",
+        "category": "popular",
         "price": 15.48
     },
     {
@@ -308,55 +236,23 @@
         "name": "Chicken Caesar",
         "desc": "Shrimp, mango, and avocado on a bed of baby greens with lime vinaigrette.",
         "image": "https://cristianonew.ukrdevs.com/wp-content/uploads/2016/08/product-2-370x247.jpg",
-        "category": "salad",
+        "category": "dessert",
         "price": 9.86
-    },
-    {
-        "id": "6366d13e-043a-41e0-aaeb-0130d73f3689",
-        "name": "Beef Ni\u00e7oise",
-        "desc": "Shrimp, mango, and avocado on a bed of baby greens with lime vinaigrette.",
-        "image": "https://cristianonew.ukrdevs.com/wp-content/uploads/2016/08/product-1-370x247.jpg",
-        "category": "salad",
-        "price": 13.88
     },
     {
         "id": "f56125e6-fe47-4c23-a04b-11dabf4b6581",
         "name": "Tuna Delight",
         "desc": "Chargrilled fresh tuna steak (served medium rare) on classic Ni\u00e7oise salad with French beans.",
         "image": "https://cristianonew.ukrdevs.com/wp-content/uploads/2016/08/product-1-370x247.jpg",
-        "category": "salad",
+        "category": "soup",
         "price": 18.93
-    },
-    {
-        "id": "053f18fe-ca06-4dfb-a151-6e08653c71f4",
-        "name": "Tuna Delight",
-        "desc": "Grilled salmon with quinoa, baby spinach, and citrus dressing.",
-        "image": "https://cristianonew.ukrdevs.com/wp-content/uploads/2016/08/product-3-370x247.jpg",
-        "category": "salad",
-        "price": 11.77
-    },
-    {
-        "id": "8b96acf4-73f3-4a84-976d-9a3cebde1d5e",
-        "name": "Grilled Salmon",
-        "desc": "Grilled salmon with quinoa, baby spinach, and citrus dressing.",
-        "image": "https://cristianonew.ukrdevs.com/wp-content/uploads/2016/08/product-3-370x247.jpg",
-        "category": "salad",
-        "price": 16.29
-    },
-    {
-        "id": "5fe615e0-5a39-45a4-bb40-50ceb66ea80b",
-        "name": "Avocado Dream",
-        "desc": "Seared beef strips with arugula, cherry tomatoes, and feta cheese.",
-        "image": "https://cristianonew.ukrdevs.com/wp-content/uploads/2016/08/product-1-370x247.jpg",
-        "category": "salad",
-        "price": 18.54
     },
     {
         "id": "c7943439-a722-493f-ad9d-9f651a9d320a",
         "name": "Vegan Bliss",
         "desc": "Shrimp, mango, and avocado on a bed of baby greens with lime vinaigrette.",
         "image": "https://cristianonew.ukrdevs.com/wp-content/uploads/2016/08/product-4-370x247.jpg",
-        "category": "salad",
+        "category": "soup",
         "price": 15.02
     },
     {
@@ -364,7 +260,7 @@
         "name": "Avocado Dream",
         "desc": "Chargrilled fresh tuna steak (served medium rare) on classic Ni\u00e7oise salad with French beans.",
         "image": "https://cristianonew.ukrdevs.com/wp-content/uploads/2016/08/product-1-370x247.jpg",
-        "category": "salad",
+        "category": "soup",
         "price": 19.66
     },
     {
@@ -372,7 +268,7 @@
         "name": "Haddock",
         "desc": "Shrimp, mango, and avocado on a bed of baby greens with lime vinaigrette.",
         "image": "https://cristianonew.ukrdevs.com/wp-content/uploads/2016/08/product-3-370x247.jpg",
-        "category": "salad",
+        "category": "pizza",
         "price": 13.86
     },
     {
@@ -380,23 +276,7 @@
         "name": "Vegan Bliss",
         "desc": "Crisp romaine with Caesar dressing, grilled chicken, croutons, and parmesan.",
         "image": "https://cristianonew.ukrdevs.com/wp-content/uploads/2016/08/product-2-370x247.jpg",
-        "category": "salad",
+        "category": "popular",
         "price": 15.43
-    },
-    {
-        "id": "50ddd7f5-f5d3-4c35-a3b3-44d351ee81b7",
-        "name": "Tuna Delight",
-        "desc": "Classic Greek salad with olives, cucumber, and feta.",
-        "image": "https://cristianonew.ukrdevs.com/wp-content/uploads/2016/08/product-4-370x247.jpg",
-        "category": "salad",
-        "price": 16.21
-    },
-    {
-        "id": "30481e7d-0b8f-4eb5-bdf4-89a69e60b599",
-        "name": "Avocado Dream",
-        "desc": "Seared beef strips with arugula, cherry tomatoes, and feta cheese.",
-        "image": "https://cristianonew.ukrdevs.com/wp-content/uploads/2016/08/product-3-370x247.jpg",
-        "category": "salad",
-        "price": 17.65
     }
 ]

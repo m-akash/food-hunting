@@ -12,6 +12,7 @@ const useFoodMenu = () => {
         setLoading(false);
       });
   }, []);
+  
   return [menu, loading];
 };
 
