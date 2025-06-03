@@ -34,7 +34,7 @@ const Menu = () => {
           <SectionTitle subHeading={"Don't miss"} heading={"Todays Offer"} />
         </div>
         <div className="mb-24">
-          <MenuCategory items={offered} />
+          <MenuCategory items={offered} title="offered" />
         </div>
 
         <div className="mb-24">
@@ -46,7 +46,7 @@ const Menu = () => {
             }
           />
           <div className="mt-12">
-            <MenuCategory items={dessert} />
+            <MenuCategory items={dessert} title="dessert" />
           </div>
         </div>
 
@@ -59,7 +59,7 @@ const Menu = () => {
             }
           />
           <div className="mt-12">
-            <MenuCategory items={pizza} />
+            <MenuCategory items={pizza} title="pizza" />
           </div>
         </div>
 
@@ -72,7 +72,7 @@ const Menu = () => {
             }
           />
           <div className="mt-12">
-            <MenuCategory items={salad} />
+            <MenuCategory items={salad} title="salad" />
           </div>
         </div>
 
@@ -85,7 +85,7 @@ const Menu = () => {
             }
           />
           <div className="mt-12">
-            <MenuCategory items={soup} />
+            <MenuCategory items={soup} title="soup" />
           </div>
         </div>
       </div>
