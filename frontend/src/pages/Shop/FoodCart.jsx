@@ -2,7 +2,7 @@ import React from "react";
 
 const FoodCart = ({ item }) => {
   return (
-    <div className="card bg-white shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 rounded-xl overflow-hidden">
+    <div className="card bg-gradient-to-r from-blue-900 to-amber-300 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 rounded-xl overflow-hidden">
       <figure className="relative overflow-hidden group">
         <img
           src={item.image}
@@ -14,12 +14,12 @@ const FoodCart = ({ item }) => {
         </div>
       </figure>
       <div className="card-body p-6">
-        <h2 className="card-title text-2xl font-bold text-gray-800 mb-3">
+        <h2 className="card-title text-2xl font-bold text-gray-50 mb-3">
           {item.name}
         </h2>
-        <p className="text-gray-600 mb-6 line-clamp-2">{item.desc}</p>
+        <p className="text-gray-100 mb-6 line-clamp-2">{item.desc}</p>
         <div className="flex justify-between items-center">
-          <span className="text-2xl font-bold text-primary">${item.price}</span>
+          <span className="text-2xl font-bold text-white">${item.price}</span>
           <button className="btn btn-primary hover:btn-secondary transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50">
             Add to Cart
           </button>

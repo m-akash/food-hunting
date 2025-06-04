@@ -9,7 +9,7 @@ import { Helmet } from "react-helmet-async";
 
 const Home = () => {
   return (
-    <div>
+    <div className="bg-gradient-to-r from-blue-900 to-amber-300">
       <Helmet>
         <title>HungerHub | Home</title>
       </Helmet>

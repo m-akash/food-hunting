@@ -24,8 +24,8 @@ const Navbar = () => {
           to="/"
           className={({ isActive }) =>
             isActive
-              ? "text-primary font-semibold"
-              : "hover:text-primary transition-colors duration-300"
+              ? "text-white border-b-1  font-semibold"
+              : "text-white hover:text-amber-200 transition-colors duration-300"
           }
         >
           Home
@@ -36,8 +36,8 @@ const Navbar = () => {
           to="/dashboard"
           className={({ isActive }) =>
             isActive
-              ? "text-primary font-semibold"
-              : "hover:text-primary transition-colors duration-300"
+              ? "text-white border-b-1 font-semibold"
+              : "text-white hover:text-amber-200 transition-colors duration-300"
           }
         >
           Dashboard
@@ -48,11 +48,11 @@ const Navbar = () => {
           to="/menu"
           className={({ isActive }) =>
             isActive
-              ? "text-primary font-semibold"
-              : "hover:text-primary transition-colors duration-300"
+              ? "text-white border-b-1 font-semibold"
+              : "text-white hover:text-amber-200 transition-colors duration-300"
           }
         >
-          Our Menu
+          Menu
         </NavLink>
       </li>
       <li>
@@ -60,11 +60,11 @@ const Navbar = () => {
           to="/shop"
           className={({ isActive }) =>
             isActive
-              ? "text-primary font-semibold"
-              : "hover:text-primary transition-colors duration-300"
+              ? "text-white border-b-1 font-semibold"
+              : "text-white hover:text-amber-200 transition-colors duration-300"
           }
         >
-          Our Shop
+          Shop
         </NavLink>
       </li>
       <li>
@@ -72,8 +72,8 @@ const Navbar = () => {
           to="/contact"
           className={({ isActive }) =>
             isActive
-              ? "text-primary font-semibold"
-              : "hover:text-primary transition-colors duration-300"
+              ? "text-white border-b-1 font-semibold"
+              : "text-white hover:text-amber-200 transition-colors duration-300"
           }
         >
           Contact Us
@@ -83,7 +83,7 @@ const Navbar = () => {
   );
 
   return (
-    <div className="navbar shadow-md fixed z-10 bg-opacity-30 bg-white max-w-screen-xl">
+    <div className="navbar shadow-md fixed z-10 bg-opacity-30 bg-gradient-to-r from-blue-900 to-amber-300 max-w-screen-xl">
       <div className="navbar-start -mr-20">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -109,9 +109,9 @@ const Navbar = () => {
             {navLinks}
           </ul>
         </div>
-        <Link to="/" className="btn btn-ghost text-xl">
-          <span className="text-primary font-bold">Hunger</span>{" "}
-          <span className="font-semibold">Hub</span>
+        <Link to="/" className="btn btn-ghost btn-primary text-xl">
+          <span className="text-white font-bold">Hunger</span>{" "}
+          <span className="text-amber-200 font-semibold">Hub</span>
         </Link>
       </div>
 
@@ -200,8 +200,8 @@ const Navbar = () => {
               </div>
             </>
           ) : (
-            <button className="btn btn-primary">
-              <Link to="/login" className="text-xs">
+            <button className="btn bg-gradient-to-r from-blue-900 to-amber-400 text-white">
+              <Link to="/login" className="text-[16px]">
                 Login / Register
               </Link>
             </button>

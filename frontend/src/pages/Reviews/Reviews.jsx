@@ -20,7 +20,7 @@ const Reviews = () => {
   }, []);
 
   return (
-    <section className="py-16 px-4 md:px-8 lg:px-16 bg-gray-50">
+    <section className="py-16 px-4 md:px-8 lg:px-16 bg-gradient-to-r from-blue-900 to-amber-300">
       <div className="max-w-7xl mx-auto">
         <SectionTitle
           subHeading={"What our clients say"}

@@ -4,11 +4,11 @@ import img1 from "../../assets/home/slide1.jpg";
 
 const ChefRecommend = () => {
   return (
-    <section className="py-12 md:py-20 px-4 bg-gradient-to-b from-white to-gray-50">
+    <section className="py-12 md:py-20 px-4 bg-gradient-to-r from-blue-900 to-amber-300">
       <div className="max-w-7xl mx-auto">
         <SectionTitle
           subHeading={"Should Try"}
-          heading={"Chef Recommends"}
+          heading={"RECOMMENDED"}
         ></SectionTitle>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">

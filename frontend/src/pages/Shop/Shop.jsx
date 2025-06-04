@@ -35,7 +35,7 @@ const Shop = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gradient-to-r from-blue-900 to-amber-300">
       <Helmet>
         <title>HungerHub | Order Food</title>
       </Helmet>
