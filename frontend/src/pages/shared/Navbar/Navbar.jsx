@@ -104,7 +104,7 @@ const Navbar = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box bg-gradient-to-r from-blue-900 to-amber-300 w-52"
           >
             {navLinks}
           </ul>
@@ -201,7 +201,7 @@ const Navbar = () => {
             </>
           ) : (
             <button className="btn bg-gradient-to-r from-blue-900 to-amber-400 text-white">
-              <Link to="/login" className="text-[16px]">
+              <Link to="/login" className="text-sm md:text-[16px]">
                 Login / Register
               </Link>
             </button>
