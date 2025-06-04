@@ -148,7 +148,13 @@ const Navbar = () => {
             </div>
           </div>
 
-          <div className="dropdown dropdown-end">
+          <button className="btn btn-soft btn-primary btn-circle">
+            <Link to="/login" className="text-xs">
+              Login
+            </Link>
+          </button>
+
+          {/* <div className="dropdown dropdown-end">
             <div
               tabIndex={0}
               role="button"
@@ -178,7 +184,7 @@ const Navbar = () => {
                 <Link to="/logout">Logout</Link>
               </li>
             </ul>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
