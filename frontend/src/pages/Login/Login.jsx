@@ -1,22 +1,24 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import AuthContext from "../../context/AuthContext";
 
 const Login = () => {
+  const { loginUser } = useContext(AuthContext);
+  const navigate = useNavigate();
   const handleSignIn = (event) => {
     event.preventDefault();
-    // const form = event.target;
-    // const email = form.email.value;
-    // const password = form.password.value;
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
 
-
-    // SignInUser(email, password)
-    //   .then((result) => {
-    //     console.log(result.user);
-    //     navigate(from);
-    //   })
-    //   .catch((errror) => {
-    //     console.log("ERROR", errror);
-    //   });
+    loginUser(email, password)
+      .then((res) => {
+        console.log(res.user);
+        navigate("/");
+      })
+      .catch((errror) => {
+        console.log("ERROR", errror);
+      });
   };
   return (
     <div className="min-h-screen my-5 bg-gradient-to-br from-gray-50 via-gray-100 to-gray-50">

@@ -1,7 +1,22 @@
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
+import useAuth from "../../../hooks/useAuth";
 
 const Navbar = () => {
+  const { user, logoutUser } = useAuth();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logoutUser()
+      .then(() => {
+        alert("Logout successfully!");
+        navigate("/");
+      })
+      .catch(() => {
+        alert("Unsuccessfull logout!");
+      });
+  };
+
   const navLinks = (
     <>
       <li>
@@ -69,7 +84,7 @@ const Navbar = () => {
 
   return (
     <div className="navbar shadow-md fixed z-10 bg-opacity-30 bg-white max-w-screen-xl">
-      <div className="navbar-start">
+      <div className="navbar-start -mr-20">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
             <svg
@@ -148,43 +163,49 @@ const Navbar = () => {
             </div>
           </div>
 
-          <button className="btn btn-soft btn-primary btn-circle">
-            <Link to="/login" className="text-xs">
-              Login
-            </Link>
-          </button>
-
-          {/* <div className="dropdown dropdown-end">
-            <div
-              tabIndex={0}
-              role="button"
-              className="btn btn-ghost btn-circle avatar"
-            >
-              <div className="w-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                <img
-                  alt="User avatar"
-                  src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
-                />
+          {user ? (
+            <>
+              <div className="dropdown dropdown-end">
+                <div
+                  tabIndex={0}
+                  role="button"
+                  className="btn btn-ghost btn-circle avatar"
+                >
+                  <div className="w-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                    <img
+                      alt="User avatar"
+                      src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+                    />
+                  </div>
+                </div>
+                <ul
+                  tabIndex={0}
+                  className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+                >
+                  <li>
+                    <Link to="/profile" className="justify-between">
+                      Profile
+                      <span className="badge badge-primary">New</span>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/settings">Settings</Link>
+                  </li>
+                  <li>
+                    <Link onClick={handleLogout} to="/logout">
+                      Logout
+                    </Link>
+                  </li>
+                </ul>
               </div>
-            </div>
-            <ul
-              tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
-            >
-              <li>
-                <Link to="/profile" className="justify-between">
-                  Profile
-                  <span className="badge badge-primary">New</span>
-                </Link>
-              </li>
-              <li>
-                <Link to="/settings">Settings</Link>
-              </li>
-              <li>
-                <Link to="/logout">Logout</Link>
-              </li>
-            </ul>
-          </div> */}
+            </>
+          ) : (
+            <button className="btn btn-primary">
+              <Link to="/login" className="text-xs">
+                Login / Register
+              </Link>
+            </button>
+          )}
         </div>
       </div>
     </div>

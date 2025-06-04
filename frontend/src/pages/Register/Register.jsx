@@ -1,20 +1,32 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import AuthContext from "../../context/AuthContext";
 
 const Register = () => {
+  const { createUser } = useContext(AuthContext);
+  const navigate = useNavigate();
+
   const handleRegister = (event) => {
     event.preventDefault();
-    // const form = event.target;
-    // const name = form.name.value;
-    // const email = form.email.value;
-    // const password = form.password.value;
-    // const regAs = form.registerAs.value;
+    const form = event.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const password = form.password.value;
 
-    // const userAuth = { email };
-    // const userData = { name, email, regAs };
+    const userAuth = { email };
+    const userData = { name, email };
 
-    // console.log(userAuth);
-    // console.log(userData);
+    console.log(userAuth);
+    console.log(userData);
+
+    createUser(email, password)
+      .then((res) => {
+        console.log(res.user);
+        navigate("/");
+      })
+      .catch((error) => {
+        console.log("ERROR", error);
+      });
   };
   return (
     <div
@@ -103,7 +115,7 @@ const Register = () => {
               </span>
             </div>
 
-            <div>
+            {/* <div>
               <label className="block text-sm font-medium text-black mb-2">
                 I want to register as
               </label>
@@ -117,7 +129,7 @@ const Register = () => {
                 <option value="employer">Employer</option>
                 <option value="jobSeeker">Job Seeker</option>
               </select>
-            </div>
+            </div> */}
 
             <button
               type="submit"

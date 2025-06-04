@@ -12,6 +12,7 @@ const PopularMenu = () => {
       <div className="grid md:grid-cols-2 gap-8 mt-12">
         {popularItems.slice(0, 6).map((item) => (
           <ItemCard
+            key={item.id}
             image={item.image}
             name={item.name}
             desc={item.desc}
