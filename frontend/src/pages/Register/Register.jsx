@@ -9,18 +9,35 @@ const Register = () => {
   const handleRegister = (event) => {
     event.preventDefault();
     const form = event.target;
+    const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
 
     createUser(email, password)
       .then((res) => {
         console.log(res.user);
-        navigate("/");
+        const newUser = { name, email, password };
+        fetch("http://localhost:3000/api/user", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(newUser),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            if (data.insertedId) {
+              alert("Registration successfull");
+            }
+          });
+        navigate("/login");
       })
       .catch((error) => {
         console.log("ERROR", error);
       });
   };
+
   return (
     <div className="min-h-screen bg-gradient-to-r from-blue-900 to-amber-300">
       <div className=" py-8 md:py-5 h-30">

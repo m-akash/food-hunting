@@ -3,6 +3,7 @@ const app = express();
 const cors = require("cors");
 require("./config/db");
 
+const userRouter = require("./routers/users.route");
 const menuRouter = require("./routers/menu.route");
 const reviewRouter = require("./routers/reviews.route");
 
@@ -13,6 +14,8 @@ app.use(express.json());
 app.use("/api/menu", menuRouter);
 
 app.use("/api/review", reviewRouter);
+
+app.use("/api/user", userRouter);
 
 app.get("/", (req, res) => {
   res.send("hello");
