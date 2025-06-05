@@ -6,16 +6,19 @@ require("./config/db");
 const userRouter = require("./routers/users.route");
 const menuRouter = require("./routers/menu.route");
 const reviewRouter = require("./routers/reviews.route");
+const contactRouter = require("./routers/contact.route");
 
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+app.use("/api/user", userRouter);
+
 app.use("/api/menu", menuRouter);
 
 app.use("/api/review", reviewRouter);
 
-app.use("/api/user", userRouter);
+app.use("/api/contact", contactRouter);
 
 app.get("/", (req, res) => {
   res.send("hello");
