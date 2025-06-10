@@ -3,7 +3,7 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 
 import App from "./App.jsx";
-import router from "./routes/Main.jsx";
+import router from "./routes/Root.jsx";
 import { RouterProvider } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import AuthProvider from "./context/AuthProvider.jsx";

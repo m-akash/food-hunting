@@ -1,6 +1,20 @@
 import React from "react";
+import useAuth from "../../hooks/useAuth";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const FoodCart = ({ item }) => {
+  const { user } = useAuth();
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleAddToCart = (food) => {
+    console.log(food, user.email);
+    if (user && user?.email) {
+      alert("item added successfully!");
+    } else {
+      navigate("/login", { state: { from: location } });
+    }
+  };
   return (
     <div className="card bg-gradient-to-r from-blue-900 to-amber-300 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 rounded-xl overflow-hidden">
       <figure className="relative overflow-hidden group">
@@ -20,7 +34,10 @@ const FoodCart = ({ item }) => {
         <p className="text-gray-100 mb-6 line-clamp-2">{item.desc}</p>
         <div className="flex justify-between items-center">
           <span className="text-2xl font-bold text-white">${item.price}</span>
-          <button className="btn btn-primary hover:btn-secondary transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50">
+          <button
+            onClick={() => handleAddToCart(item)}
+            className="btn btn-primary hover:btn-secondary transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50"
+          >
             Add to Cart
           </button>
         </div>

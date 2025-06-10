@@ -147,6 +147,7 @@ const Navbar = () => {
                 </span>
               </div>
             </div>
+
             <div
               tabIndex={0}
               className="mt-3 z-[1] card card-compact dropdown-content w-52 bg-base-100 shadow"
@@ -161,6 +162,7 @@ const Navbar = () => {
                 </div>
               </div>
             </div>
+
           </div>
 
           {user ? (

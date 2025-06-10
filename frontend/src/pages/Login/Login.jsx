@@ -1,24 +1,28 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
 import AuthContext from "../../context/AuthContext";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import SocialLogin from "../shared/SocialLogin/SocialLogin";
 import {
   loadCaptchaEnginge,
   LoadCanvasTemplate,
   validateCaptcha,
 } from "react-simple-captcha";
+import { Helmet } from "react-helmet-async";
 
 const Login = () => {
-  const captchaRef = useRef(null);
   const [disabled, setDisabled] = useState(true);
   const { loginUser } = useContext(AuthContext);
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const from = location.state?.from?.pathname || "/";
 
   useEffect(() => {
     loadCaptchaEnginge(6);
   }, []);
 
-  const handleValidateCaptcha = () => {
-    const captcha_value = captchaRef.current.value;
+  const handleValidateCaptcha = (event) => {
+    const captcha_value = event.target.value;
     if (validateCaptcha(captcha_value)) {
       setDisabled(false);
     } else {
@@ -33,8 +37,8 @@ const Login = () => {
     const password = form.password.value;
 
     loginUser(email, password)
-      .then((res) => {
-        navigate("/");
+      .then(() => {
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         console.log("ERROR", error);
@@ -43,6 +47,9 @@ const Login = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-r from-blue-900 to-amber-300">
+      <Helmet>
+        <title>HungerHub | Login</title>
+      </Helmet>
       <div className="min-h-screen bg-gradient-to-b from-black/70 via-black/50 to-black/70 backdrop-blur-[2px]">
         <div className="bg-gradient-to-r from-blue-900 to-amber-300 py-8 md:py-5 h-30">
           <div className="container mx-auto px-4 md:px-8">
@@ -104,19 +111,13 @@ const Login = () => {
                   </label>
                   <div className="flex gap-2">
                     <input
+                      onBlur={handleValidateCaptcha}
                       type="text"
-                      ref={captchaRef}
                       name="captcha"
                       className="flex-1 px-4 py-3 text-gray-700 border border-orange-200 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-all duration-300 placeholder-gray-400 bg-white bg-opacity-90 hover:border-orange-300"
                       placeholder="Type the above text here"
                       required
                     />
-                    <button
-                      onClick={handleValidateCaptcha}
-                      className="px-4 py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2"
-                    >
-                      Validate
-                    </button>
                   </div>
                 </div>
 
@@ -126,7 +127,6 @@ const Login = () => {
                   </Link>
                 </div>
 
-                {/* Sign In Button */}
                 <button
                   disabled={disabled}
                   type="submit"
@@ -147,6 +147,8 @@ const Login = () => {
                     <span className="px-2 bg-white text-gray-500">OR</span>
                   </div>
                 </div>
+
+                <SocialLogin></SocialLogin>
 
                 <p className="text-center text-gray-600">
                   New to Food Hunting?{" "}
