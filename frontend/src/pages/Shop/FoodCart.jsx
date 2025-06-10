@@ -1,16 +1,26 @@
 import React from "react";
 import useAuth from "../../hooks/useAuth";
 import { useLocation, useNavigate } from "react-router-dom";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const FoodCart = ({ item }) => {
   const { user } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
-
+  const axiosSecure = useAxiosSecure();
   const handleAddToCart = (food) => {
     console.log(food, user.email);
     if (user && user?.email) {
-      alert("item added successfully!");
+      const cartItem = {
+        cartId: item.id,
+        userEmail: user.email,
+        foodName: item.name,
+        foodCategory: item.category,
+        price: item.price,
+      };
+      axiosSecure.post("/api/carts", cartItem).then(() => {
+        alert(`${item.name} added to your cart!`);
+      });
     } else {
       navigate("/login", { state: { from: location } });
     }
