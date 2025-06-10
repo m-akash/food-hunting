@@ -1,10 +1,12 @@
 import React from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
+import useCart from "../../../hooks/useCart";
 
 const Navbar = () => {
   const { user, logoutUser } = useAuth();
   const navigate = useNavigate();
+  const [cart] = useCart();
 
   const handleLogout = () => {
     logoutUser()
@@ -143,7 +145,7 @@ const Navbar = () => {
                   />
                 </svg>
                 <span className="badge badge-sm indicator-item bg-primary text-white">
-                  8
+                  {cart.length}
                 </span>
               </div>
             </div>
@@ -153,16 +155,18 @@ const Navbar = () => {
               className="mt-3 z-[1] card card-compact dropdown-content w-52 bg-base-100 shadow"
             >
               <div className="card-body">
-                <span className="font-bold text-lg">8 Items</span>
+                <span className="font-bold text-lg">{cart.length} Items</span>
                 <span className="text-info">Subtotal: $999</span>
                 <div className="card-actions">
-                  <Link to="/cart" className="btn btn-primary btn-block">
+                  <Link
+                    to="/dashboard/cart"
+                    className="btn btn-primary btn-block"
+                  >
                     View cart
                   </Link>
                 </div>
               </div>
             </div>
-
           </div>
 
           {user ? (

@@ -2,14 +2,16 @@ import React from "react";
 import useAuth from "../../hooks/useAuth";
 import { useLocation, useNavigate } from "react-router-dom";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
+import useCart from "../../hooks/useCart";
 
 const FoodCart = ({ item }) => {
   const { user } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
   const axiosSecure = useAxiosSecure();
-  const handleAddToCart = (food) => {
-    console.log(food, user.email);
+  const [, refetch] = useCart();
+
+  const handleAddToCart = () => {
     if (user && user?.email) {
       const cartItem = {
         cartId: item.id,
@@ -19,7 +21,7 @@ const FoodCart = ({ item }) => {
         price: item.price,
       };
       axiosSecure.post("/api/carts", cartItem).then(() => {
-        alert(`${item.name} added to your cart!`);
+        refetch();
       });
     } else {
       navigate("/login", { state: { from: location } });
@@ -45,7 +47,7 @@ const FoodCart = ({ item }) => {
         <div className="flex justify-between items-center">
           <span className="text-2xl font-bold text-white">${item.price}</span>
           <button
-            onClick={() => handleAddToCart(item)}
+            onClick={handleAddToCart}
             className="btn btn-primary hover:btn-secondary transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50"
           >
             Add to Cart

@@ -1,6 +1,17 @@
 const { v4: uuidv4 } = require("uuid");
 const carts = require("../models/cart.model");
 
+const getCarts = async (req, res) => {
+  try {
+    const email = req.query.userEmail;
+    const query = { userEmail: email };
+    const result = await carts.find(query);
+    res.status(200).json(result);
+  } catch (error) {
+    res.status(500).send(error.message);
+  }
+};
+
 const createCart = async (req, res) => {
   try {
     const cartItem = new carts({
@@ -18,4 +29,4 @@ const createCart = async (req, res) => {
   }
 };
 
-module.exports = { createCart };
+module.exports = { getCarts, createCart };
