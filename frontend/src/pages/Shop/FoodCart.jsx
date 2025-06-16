@@ -9,14 +9,15 @@ const FoodCart = ({ item }) => {
   const navigate = useNavigate();
   const location = useLocation();
   const axiosSecure = useAxiosSecure();
-  const [, refetch] = useCart(); 
+  const [, refetch] = useCart();
 
   const handleAddToCart = () => {
     if (user && user?.email) {
       const cartItem = {
-        cartId: item.id,
+        itemId: item.id,
         userEmail: user.email,
         foodName: item.name,
+        foodImg: item.image,
         foodCategory: item.category,
         price: item.price,
       };

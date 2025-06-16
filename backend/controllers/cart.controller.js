@@ -15,7 +15,7 @@ const getCarts = async (req, res) => {
 const createCart = async (req, res) => {
   try {
     const cartItem = new carts({
-      cartId: uuidv4(),
+      itemId: uuidv4(),
       userEmail: req.body.userEmail,
       foodName: req.body.foodName,
       foodImg: req.body.foodImg,
@@ -29,4 +29,14 @@ const createCart = async (req, res) => {
   }
 };
 
-module.exports = { getCarts, createCart };
+const deleteCartById = async (req, res) => {
+  try {
+    const itemId = req.params.itemId;
+    const result = await carts.deleteOne({ itemId: itemId });
+    res.status(200).send(result);
+  } catch (error) {
+    res.status(500).send(error.message);
+  }
+};
+
+module.exports = { getCarts, createCart, deleteCartById };
