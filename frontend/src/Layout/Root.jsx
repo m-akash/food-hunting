@@ -8,7 +8,7 @@ const Root = () => {
   const hideHeaderAndFooterForRegister =
     location.pathname.includes("/register");
   return (
-    <div className="max-w-7xl mx-auto " data-theme="light">
+    <div className="max-w-7xl mx-auto ">
       {hideHeaderAndFooter || hideHeaderAndFooterForRegister || (
         <Navbar></Navbar>
       )}

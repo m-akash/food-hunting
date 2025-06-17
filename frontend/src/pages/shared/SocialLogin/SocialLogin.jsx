@@ -2,14 +2,24 @@ import React, { useContext } from "react";
 
 import { useNavigate } from "react-router-dom";
 import AuthContext from "../../../context/AuthContext";
+import useAxiosPublic from "../../../hooks/useAxiosPublic";
 
 const SocialLogin = () => {
   const { loginWithGoogle } = useContext(AuthContext);
+  const axiosPublic = useAxiosPublic();
   const navigate = useNavigate();
 
   const handleLoginWithGoogle = () => {
     loginWithGoogle()
-      .then(() => {
+      .then((result) => {
+        const newUser = {
+          email: result.user?.email,
+          name: result.user?.displayName,
+          password: null,
+        };
+        axiosPublic.post("/api/user/register", newUser).then((res) => {
+          console.log(res.data);
+        });
         navigate("/");
       })
       .catch(() => {

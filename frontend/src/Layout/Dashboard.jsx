@@ -12,10 +12,20 @@ import {
   FaUtensils,
   FaShoppingBag,
   FaEnvelope,
+  FaUsers,
+  FaBox,
+  FaBookmark,
+  FaUserPlus,
+  FaListAlt,
+  FaStore,
+  FaPhoneAlt,
 } from "react-icons/fa";
 
 const Dashboard = () => {
   const [isOpen, setIsOpen] = useState(false);
+
+  //TODO
+  const isAdmin = true;
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
@@ -23,7 +33,7 @@ const Dashboard = () => {
 
   return (
     <div
-      className="flex flex-col md:flex-row min-h-screen max-w-7xl mx-auto bg-gray-50"
+      className="flex flex-col md:flex-row min-h-screen max-w-7xl mx-auto bg-gradient-to-r from-blue-900 to-amber-200"
       data-theme="light"
     >
       <button
@@ -34,99 +44,176 @@ const Dashboard = () => {
       </button>
 
       <div
-        className={`fixed md:static w-64 min-h-screen bg-gradient-to-b from-orange-400 to-orange-500 transform transition-transform duration-300 ease-in-out ${
+        className={`fixed md:static w-64 min-h-screen bg-gradient-to-r from-blue-900 to-amber-200 transform transition-transform duration-300 ease-in-out ${
           isOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"
         } z-40 shadow-xl`}
       >
         <div className="p-6">
           <h2 className="text-2xl font-bold text-white mb-8 text-center border-b border-orange-300 pb-4">
-            User Dashboard
+            {isAdmin ? "Admin Dashboard" : "User Dashboard"}
           </h2>
           <ul className="space-y-3">
-            <li>
-              <NavLink
-                to="/dashboard"
-                className={({ isActive }) =>
-                  `flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 ${
-                    isActive
-                      ? "bg-white text-orange-500 shadow-md"
-                      : "text-white hover:bg-orange-500 hover:shadow-md"
-                  }`
-                }
-              >
-                <FaHome className="text-lg" /> User Home
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/dashboard/reservation"
-                className={({ isActive }) =>
-                  `flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 ${
-                    isActive
-                      ? "bg-white text-orange-500 shadow-md"
-                      : "text-white hover:bg-orange-500 hover:shadow-md"
-                  }`
-                }
-              >
-                <FaCalendarCheck className="text-lg" /> Reservation
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/dashboard/payment-history"
-                className={({ isActive }) =>
-                  `flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 ${
-                    isActive
-                      ? "bg-white text-orange-500 shadow-md"
-                      : "text-white hover:bg-orange-500 hover:shadow-md"
-                  }`
-                }
-              >
-                <FaHistory className="text-lg" /> Payment History
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/dashboard/cart"
-                className={({ isActive }) =>
-                  `flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 ${
-                    isActive
-                      ? "bg-white text-orange-500 shadow-md"
-                      : "text-white hover:bg-orange-500 hover:shadow-md"
-                  }`
-                }
-              >
-                <FaShoppingCart className="text-lg" /> My Cart
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/dashboard/review"
-                className={({ isActive }) =>
-                  `flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 ${
-                    isActive
-                      ? "bg-white text-orange-500 shadow-md"
-                      : "text-white hover:bg-orange-500 hover:shadow-md"
-                  }`
-                }
-              >
-                <FaStar className="text-lg" /> Add Review
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/dashboard/booking"
-                className={({ isActive }) =>
-                  `flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 ${
-                    isActive
-                      ? "bg-white text-orange-500 shadow-md"
-                      : "text-white hover:bg-orange-500 hover:shadow-md"
-                  }`
-                }
-              >
-                <FaClipboardList className="text-lg" /> My Booking
-              </NavLink>
-            </li>
+            {isAdmin ? (
+              <div>
+                <li>
+                  <NavLink
+                    to="/dashboard"
+                    className={({ isActive }) =>
+                      `flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 ${
+                        isActive
+                          ? "bg-white text-orange-500 shadow-md"
+                          : "text-white hover:bg-orange-500 hover:shadow-md"
+                      }`
+                    }
+                  >
+                    <FaHome className="text-lg" /> Admin Home
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to="/dashboard/add-items"
+                    className={({ isActive }) =>
+                      `flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 ${
+                        isActive
+                          ? "bg-white text-orange-500 shadow-md"
+                          : "text-white hover:bg-orange-500 hover:shadow-md"
+                      }`
+                    }
+                  >
+                    <FaBox className="text-lg" /> Add Items
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to="/dashboard/manage-items"
+                    className={({ isActive }) =>
+                      `flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 ${
+                        isActive
+                          ? "bg-white text-orange-500 shadow-md"
+                          : "text-white hover:bg-orange-500 hover:shadow-md"
+                      }`
+                    }
+                  >
+                    <FaListAlt className="text-lg" /> Manage Items
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to="/dashboard/manage-booking"
+                    className={({ isActive }) =>
+                      `flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 ${
+                        isActive
+                          ? "bg-white text-orange-500 shadow-md"
+                          : "text-white hover:bg-orange-500 hover:shadow-md"
+                      }`
+                    }
+                  >
+                    <FaBookmark className="text-lg" /> Manage Bookings
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to="/dashboard/users"
+                    className={({ isActive }) =>
+                      `flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 ${
+                        isActive
+                          ? "bg-white text-orange-500 shadow-md"
+                          : "text-white hover:bg-orange-500 hover:shadow-md"
+                      }`
+                    }
+                  >
+                    <FaUsers className="text-lg" /> All Users
+                  </NavLink>
+                </li>
+              </div>
+            ) : (
+              <div>
+                <li>
+                  <NavLink
+                    to="/dashboard"
+                    className={({ isActive }) =>
+                      `flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 ${
+                        isActive
+                          ? "bg-white text-orange-500 shadow-md"
+                          : "text-white hover:bg-orange-500 hover:shadow-md"
+                      }`
+                    }
+                  >
+                    <FaHome className="text-lg" /> User Home
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to="/dashboard/reservation"
+                    className={({ isActive }) =>
+                      `flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 ${
+                        isActive
+                          ? "bg-white text-orange-500 shadow-md"
+                          : "text-white hover:bg-orange-500 hover:shadow-md"
+                      }`
+                    }
+                  >
+                    <FaCalendarCheck className="text-lg" /> Reservation
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to="/dashboard/payment-history"
+                    className={({ isActive }) =>
+                      `flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 ${
+                        isActive
+                          ? "bg-white text-orange-500 shadow-md"
+                          : "text-white hover:bg-orange-500 hover:shadow-md"
+                      }`
+                    }
+                  >
+                    <FaHistory className="text-lg" /> Payment History
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to="/dashboard/cart"
+                    className={({ isActive }) =>
+                      `flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 ${
+                        isActive
+                          ? "bg-white text-orange-500 shadow-md"
+                          : "text-white hover:bg-orange-500 hover:shadow-md"
+                      }`
+                    }
+                  >
+                    <FaShoppingCart className="text-lg" /> My Cart
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to="/dashboard/review"
+                    className={({ isActive }) =>
+                      `flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 ${
+                        isActive
+                          ? "bg-white text-orange-500 shadow-md"
+                          : "text-white hover:bg-orange-500 hover:shadow-md"
+                      }`
+                    }
+                  >
+                    <FaStar className="text-lg" /> Add Review
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to="/dashboard/booking"
+                    className={({ isActive }) =>
+                      `flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 ${
+                        isActive
+                          ? "bg-white text-orange-500 shadow-md"
+                          : "text-white hover:bg-orange-500 hover:shadow-md"
+                      }`
+                    }
+                  >
+                    <FaClipboardList className="text-lg" /> My Booking
+                  </NavLink>
+                </li>
+              </div>
+            )}
 
             <div className="border-t border-orange-300 my-6"></div>
 
@@ -169,7 +256,7 @@ const Dashboard = () => {
                   }`
                 }
               >
-                <FaShoppingBag className="text-lg" /> Shop
+                <FaStore className="text-lg" /> Shop
               </NavLink>
             </li>
             <li>
@@ -183,7 +270,7 @@ const Dashboard = () => {
                   }`
                 }
               >
-                <FaEnvelope className="text-lg" /> Contact
+                <FaPhoneAlt className="text-lg" /> Contact
               </NavLink>
             </li>
           </ul>
@@ -191,7 +278,7 @@ const Dashboard = () => {
       </div>
 
       <div className="flex-1 p-4 md:p-8">
-        <div className="max-w-7xl mx-auto bg-white rounded-lg shadow-lg p-6">
+        <div className="max-w-7xl mx-auto bg-white rounded-lg shadow-lg p-6 backdrop-blur-sm bg-opacity-90">
           <Outlet />
         </div>
       </div>

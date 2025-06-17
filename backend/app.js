@@ -12,7 +12,7 @@ app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.use("/api/user", userRouter);
+app.use("/api/users", userRouter);
 
 app.use("/api/menu", menuRouter);
 
