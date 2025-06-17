@@ -1,5 +1,12 @@
 import useCart from "../../../hooks/useCart";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import {
+  showSuccessAlert,
+  showErrorAlert,
+  showLoadingAlert,
+  closeLoadingAlert,
+  showConfirmationDialog,
+} from "../../../utils/alertUtils";
 
 const Cart = () => {
   const [cart] = useCart();
@@ -8,8 +15,44 @@ const Cart = () => {
   const [, refetch] = useCart();
 
   const handleRemoveItem = (itemId) => {
-    axiosSecure.delete(`/api/carts/${itemId}`).then(() => {
-      refetch();
+    showConfirmationDialog(
+      "Remove Item",
+      "Are you sure you want to remove this item from your cart?"
+    ).then((result) => {
+      if (result.isConfirmed) {
+        showLoadingAlert("Removing item...");
+        axiosSecure
+          .delete(`/api/carts/${itemId}`)
+          .then(() => {
+            closeLoadingAlert();
+            showSuccessAlert("Item removed from cart!");
+            refetch();
+          })
+          .catch(() => {
+            closeLoadingAlert();
+            showErrorAlert("Failed to remove item. Please try again.");
+          });
+      }
+    });
+  };
+
+  const handleProcessPayment = () => {
+    if (cart.length === 0) {
+      showErrorAlert("Your cart is empty!");
+      return;
+    }
+    showConfirmationDialog(
+      "Process Payment",
+      "Are you sure you want to proceed with the payment?"
+    ).then((result) => {
+      if (result.isConfirmed) {
+        showLoadingAlert("Processing payment...");
+        // Add your payment processing logic here
+        setTimeout(() => {
+          closeLoadingAlert();
+          showSuccessAlert("Payment processed successfully!");
+        }, 2000);
+      }
     });
   };
 
@@ -29,7 +72,10 @@ const Cart = () => {
             </h2>
             <p className="text-gray-600 mt-1">Total Amount</p>
           </div>
-          <button className="btn btn-accent w-full sm:w-auto hover:scale-105 transition-transform">
+          <button
+            onClick={handleProcessPayment}
+            className="btn btn-accent w-full sm:w-auto hover:scale-105 transition-transform"
+          >
             Process to Pay
           </button>
         </div>

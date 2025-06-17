@@ -3,6 +3,12 @@ import useAuth from "../../hooks/useAuth";
 import { useLocation, useNavigate } from "react-router-dom";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import useCart from "../../hooks/useCart";
+import {
+  showSuccessAlert,
+  showErrorAlert,
+  showLoadingAlert,
+  closeLoadingAlert,
+} from "../../utils/alertUtils";
 
 const FoodCart = ({ item }) => {
   const { user } = useAuth();
@@ -13,6 +19,7 @@ const FoodCart = ({ item }) => {
 
   const handleAddToCart = () => {
     if (user && user?.email) {
+      showLoadingAlert("Adding to cart...");
       const cartItem = {
         itemId: item.id,
         userEmail: user.email,
@@ -21,10 +28,19 @@ const FoodCart = ({ item }) => {
         foodCategory: item.category,
         price: item.price,
       };
-      axiosSecure.post("/api/carts", cartItem).then(() => {
-        refetch();
-      });
+      axiosSecure
+        .post("/api/carts", cartItem)
+        .then(() => {
+          closeLoadingAlert();
+          showSuccessAlert("Item added to cart!");
+          refetch();
+        })
+        .catch(() => {
+          closeLoadingAlert();
+          showErrorAlert("Failed to add item to cart. Please try again.");
+        });
     } else {
+      showErrorAlert("Please login to add items to cart");
       navigate("/login", { state: { from: location } });
     }
   };

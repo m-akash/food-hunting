@@ -8,6 +8,12 @@ import {
   MdOutlineEmail,
   MdOutlineLocationOn,
 } from "react-icons/md";
+import {
+  showSuccessAlert,
+  showErrorAlert,
+  showLoadingAlert,
+  closeLoadingAlert,
+} from "../../utils/alertUtils";
 
 const ContactUs = () => {
   const navigate = useNavigate();
@@ -20,7 +26,7 @@ const ContactUs = () => {
     const message = form.message.value;
 
     const messageInfo = { name, email, message };
-    console.log(messageInfo);
+    showLoadingAlert("Sending your message...");
 
     fetch("http://localhost:3000/api/contact", {
       method: "POST",
@@ -31,11 +37,18 @@ const ContactUs = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        closeLoadingAlert();
         if (data.insertedId) {
-          alert("message sent successfully!");
+          showSuccessAlert("Message sent successfully!");
+          form.reset();
+          navigate("/");
+        } else {
+          showErrorAlert("Failed to send message. Please try again.");
         }
-        navigate("/");
+      })
+      .catch(() => {
+        closeLoadingAlert();
+        showErrorAlert("An error occurred. Please try again later.");
       });
   };
   return (

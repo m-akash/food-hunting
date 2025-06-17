@@ -3,6 +3,12 @@ import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import AuthContext from "../../../context/AuthContext";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
+import {
+  showSuccessAlert,
+  showErrorAlert,
+  showLoadingAlert,
+  closeLoadingAlert,
+} from "../../../utils/alertUtils";
 
 const SocialLogin = () => {
   const { loginWithGoogle } = useContext(AuthContext);
@@ -10,6 +16,7 @@ const SocialLogin = () => {
   const navigate = useNavigate();
 
   const handleLoginWithGoogle = () => {
+    showLoadingAlert("Signing in with Google...");
     loginWithGoogle()
       .then((result) => {
         const newUser = {
@@ -17,13 +24,15 @@ const SocialLogin = () => {
           name: result.user?.displayName,
           password: null,
         };
-        axiosPublic.post("/api/user/register", newUser).then((res) => {
-          console.log(res.data);
+        axiosPublic.post("/api/users/register", newUser).then(() => {
+          closeLoadingAlert();
+          showSuccessAlert("Successfully signed in with Google!");
+          navigate("/");
         });
-        navigate("/");
       })
       .catch(() => {
-        alert("Unsuccessful attempt!");
+        closeLoadingAlert();
+        showErrorAlert("Failed to sign in with Google. Please try again.");
       });
   };
   return (

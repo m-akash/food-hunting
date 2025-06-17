@@ -1,6 +1,5 @@
 const { v4: uuidv4 } = require("uuid");
 const users = require("../models/users.model");
-
 const bcrypt = require("bcrypt");
 const saltRounds = 10;
 
@@ -49,4 +48,29 @@ const loginUser = async (req, res) => {
   }
 };
 
-module.exports = { getUsers, createUser, loginUser };
+const makeAdmin = async (req, res) => {
+  try {
+    const user = await users.findOne({ id: req.params.id });
+    const updatedDoc = {
+      $set: {
+        role: "admin",
+      },
+    };
+    const result = await users.updateOne(user, updatedDoc);
+    res.status(200).json(result);
+  } catch (error) {
+    res.status(500).send(error.message);
+  }
+};
+
+const deleteUser = async (req, res) => {
+  try {
+    const email = req.params.email;
+    const user = await users.deleteOne({ email: email });
+    res.status(200).json(user);
+  } catch (error) {
+    res.status(500).send(error.message);
+  }
+};
+
+module.exports = { getUsers, createUser, loginUser, makeAdmin, deleteUser };

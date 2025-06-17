@@ -8,6 +8,12 @@ import {
   validateCaptcha,
 } from "react-simple-captcha";
 import { Helmet } from "react-helmet-async";
+import {
+  showSuccessAlert,
+  showErrorAlert,
+  showLoadingAlert,
+  closeLoadingAlert,
+} from "../../utils/alertUtils";
 
 const Login = () => {
   const [disabled, setDisabled] = useState(true);
@@ -36,12 +42,17 @@ const Login = () => {
     const email = form.email.value;
     const password = form.password.value;
 
+    showLoadingAlert("Signing in...");
+
     loginUser(email, password)
       .then(() => {
+        closeLoadingAlert();
+        showSuccessAlert("Successfully signed in!");
         navigate(from, { replace: true });
       })
       .catch((error) => {
-        console.log("ERROR", error);
+        closeLoadingAlert();
+        showErrorAlert(error.message || "Failed to sign in. Please try again.");
       });
   };
 

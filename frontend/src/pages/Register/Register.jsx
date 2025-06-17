@@ -2,6 +2,12 @@ import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import AuthContext from "../../context/AuthContext";
 import { Helmet } from "react-helmet-async";
+import {
+  showSuccessAlert,
+  showErrorAlert,
+  showLoadingAlert,
+  closeLoadingAlert,
+} from "../../utils/alertUtils";
 
 const Register = () => {
   const { createUser } = useContext(AuthContext);
@@ -14,11 +20,12 @@ const Register = () => {
     const email = form.email.value;
     const password = form.password.value;
 
+    showLoadingAlert("Creating your account...");
+
     createUser(email, password)
-      .then((res) => {
-        console.log(res.user);
+      .then(() => {
         const newUser = { name, email, password };
-        fetch("http://localhost:3000/api/user/register", {
+        fetch("http://localhost:3000/api/users/register", {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -27,15 +34,24 @@ const Register = () => {
         })
           .then((res) => res.json())
           .then((data) => {
-            console.log(data);
+            closeLoadingAlert();
             if (data.insertedId) {
-              alert("Registration successfull");
+              showSuccessAlert("Registration successful!");
+              navigate("/login");
+            } else {
+              showErrorAlert("Registration failed. Please try again.");
             }
+          })
+          .catch(() => {
+            closeLoadingAlert();
+            showErrorAlert("An error occurred during registration.");
           });
-        navigate("/login");
       })
       .catch((error) => {
-        console.log("ERROR", error);
+        closeLoadingAlert();
+        showErrorAlert(
+          error.message || "Registration failed. Please try again."
+        );
       });
   };
 
