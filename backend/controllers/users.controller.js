@@ -1,6 +1,9 @@
 const { v4: uuidv4 } = require("uuid");
 const users = require("../models/users.model");
 
+const bcrypt = require("bcrypt");
+const saltRounds = 10;
+
 const getUsers = async (req, res) => {
   try {
     const user = await users.find();
@@ -12,17 +15,38 @@ const getUsers = async (req, res) => {
 
 const createUser = async (req, res) => {
   try {
-    const newUser = new users({
-      id: uuidv4(),
-      name: req.body.name,
-      email: req.body.email,
-      password: req.body.password,
+    bcrypt.hash(req.body.password, saltRounds, async function (err, hash) {
+      const newUser = new users({
+        id: uuidv4(),
+        name: req.body.name,
+        email: req.body.email,
+        password: hash,
+      });
+      await newUser.save();
+      res.status(201).json(newUser);
     });
-    await newUser.save();
-    res.status(201).json(newUser);
   } catch (error) {
     res.status(500).send(error.message);
   }
 };
 
-module.exports = { getUsers, createUser };
+const loginUser = async (req, res) => {
+  try {
+    const email = req.body.email;
+    const password = req.body.password;
+    const user = await users.findOne({ email: email });
+    if (user) {
+      bcrypt.compare(password, user.password, function (err, result) {
+        if (result === true) {
+          res.status(200).json({ status: "Valid User" });
+        } else {
+          res.status(404).json({ status: "Not a valid user" });
+        }
+      });
+    }
+  } catch (error) {
+    res.status(500).send(error.message);
+  }
+};
+
+module.exports = { getUsers, createUser, loginUser };

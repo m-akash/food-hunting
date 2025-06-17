@@ -33,7 +33,7 @@ const deleteCartById = async (req, res) => {
   try {
     const itemId = req.params.itemId;
     const result = await carts.deleteOne({ itemId: itemId });
-    res.status(200).send(result);
+    res.status(200).json(result);
   } catch (error) {
     res.status(500).send(error.message);
   }

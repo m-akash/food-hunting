@@ -18,7 +18,7 @@ const Register = () => {
       .then((res) => {
         console.log(res.user);
         const newUser = { name, email, password };
-        fetch("http://localhost:3000/api/user", {
+        fetch("http://localhost:3000/api/user/register", {
           method: "POST",
           headers: {
             "content-type": "application/json",
