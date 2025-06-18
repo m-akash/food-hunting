@@ -97,6 +97,23 @@ const makeAdmin = async (req, res) => {
   }
 };
 
+const checkAdmin = async (req, res) => {
+  try {
+    const email = req.params.email;
+    if (email !== req.decoded.email) {
+      res.status(403).send({ message: "forbidden access" });
+    }
+    const user = await users.findOne({ email: email });
+    let admin = false;
+    if (user) {
+      admin = user?.role === "admin";
+    }
+    res.status(200).send({ admin });
+  } catch (error) {
+    res.status(500).send(error.message);
+  }
+};
+
 const deleteUser = async (req, res) => {
   try {
     const email = req.params.email;
@@ -114,4 +131,5 @@ module.exports = {
   makeAdmin,
   deleteUser,
   socialLogin,
+  checkAdmin,
 };

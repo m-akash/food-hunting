@@ -10,22 +10,19 @@ import {
   FaBars,
   FaTimes,
   FaUtensils,
-  FaShoppingBag,
-  FaEnvelope,
   FaUsers,
   FaBox,
   FaBookmark,
-  FaUserPlus,
   FaListAlt,
   FaStore,
   FaPhoneAlt,
 } from "react-icons/fa";
+import useAdmin from "../hooks/useAdmin";
 
 const Dashboard = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  //TODO
-  const isAdmin = true;
+  const [isAdmin] = useAdmin();
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);

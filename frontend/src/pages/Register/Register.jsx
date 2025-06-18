@@ -62,112 +62,228 @@ const Register = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-r from-blue-900 to-amber-300">
+    <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 relative overflow-hidden">
+      {/* Animated background elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-yellow-400/20 to-orange-500/20 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-tr from-blue-400/20 to-cyan-500/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-pink-400/10 to-purple-400/10 rounded-full blur-3xl animate-pulse delay-500"></div>
+      </div>
+
       <Helmet>
         <title>HungerHub | Register</title>
       </Helmet>
-      <div className=" py-8 md:py-5 h-30">
-        <div className="container mx-auto px-4 md:px-8">
-          <h1 className="text-3xl md:text-4xl font-bold text-white mb-2">
-            Join Food Hunting
-          </h1>
-          <div className="flex items-center text-gray-100">
-            <Link to="/" className="hover:text-white transition-colors">
-              Home
-            </Link>
-            <span className="mx-2">›</span>
-            <span className="text-white">Create Account</span>
-          </div>
-        </div>
-      </div>
 
-      <div className="container mx-auto px-4 md:px-8 py-8 md:py-12">
+     
+      <div className="relative z-10 container mx-auto px-4 md:px-8 py-8">
         <div className="max-w-2xl mx-auto">
-          <h1 className="text-3xl md:text-4xl font-bold text-center text-white mb-2">
-            Create Your Account
-          </h1>
-          <p className="text-center text-gray-700 mb-8">
-            Join our community of food lovers and start your culinary journey
-          </p>
+          <div className="text-center mb-8">
+            <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full mb-6 shadow-lg">
+              <svg
+                className="w-10 h-10 text-white"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                />
+              </svg>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              Create Your Account
+            </h2>
+            <p className="text-lg text-gray-300 max-w-md mx-auto">
+              Join our community of food lovers and start your culinary journey
+              today
+            </p>
+          </div>
 
-          <div className="bg-white rounded-2xl shadow-xl p-6 md:p-8 border border-orange-100">
+          <div className="text-center mb-8">
+            <div className="flex items-center justify-center text-gray-300 space-x-2">
+              <Link
+                to="/"
+                className="hover:text-white transition-colors duration-300 hover:scale-105"
+              >
+                Home
+              </Link>
+              <span className="text-yellow-400">›</span>
+              <span className="text-white font-medium">Create Account</span>
+            </div>
+          </div>
+
+          {/* Registration Form */}
+          <div className="bg-white/10 backdrop-blur-lg rounded-3xl shadow-2xl p-8 md:p-10 border border-white/20">
             <form onSubmit={handleRegister} className="space-y-6">
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+              {/* Name Field */}
+              <div className="group">
+                <label className="block text-sm font-semibold text-white mb-3 items-center">
+                  <svg
+                    className="w-4 h-4 mr-2 text-yellow-400"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                    />
+                  </svg>
                   Full Name
                 </label>
-                <input
-                  type="text"
-                  name="name"
-                  minLength="3"
-                  className="w-full px-4 py-3 bg-orange-50 border border-orange-200 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors text-gray-700 placeholder-gray-400"
-                  placeholder="Enter your full name"
-                  required
-                />
+                <div className="relative">
+                  <input
+                    type="text"
+                    name="name"
+                    minLength="3"
+                    className="w-full px-4 py-4 bg-white/10 border border-white/20 rounded-xl focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400 transition-all duration-300 text-white placeholder-gray-300 backdrop-blur-sm group-hover:bg-white/15"
+                    placeholder="Enter your full name"
+                    required
+                  />
+                  <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-yellow-400/20 to-orange-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+                </div>
               </div>
 
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+              {/* Email Field */}
+              <div className="group">
+                <label className="block text-sm font-semibold text-white mb-3 items-center">
+                  <svg
+                    className="w-4 h-4 mr-2 text-yellow-400"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                    />
+                  </svg>
                   Email Address
                 </label>
-                <input
-                  type="email"
-                  name="email"
-                  className="w-full px-4 py-3 bg-orange-50 border border-orange-200 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors text-gray-700 placeholder-gray-400"
-                  placeholder="Enter your email address"
-                  required
-                />
+                <div className="relative">
+                  <input
+                    type="email"
+                    name="email"
+                    className="w-full px-4 py-4 bg-white/10 border border-white/20 rounded-xl focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400 transition-all duration-300 text-white placeholder-gray-300 backdrop-blur-sm group-hover:bg-white/15"
+                    placeholder="Enter your email address"
+                    required
+                  />
+                  <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-yellow-400/20 to-orange-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+                </div>
               </div>
 
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+              {/* Password Field */}
+              <div className="group">
+                <label className="block text-sm font-semibold text-white mb-3 items-center">
+                  <svg
+                    className="w-4 h-4 mr-2 text-yellow-400"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+                    />
+                  </svg>
                   Password
                 </label>
-                <input
-                  type="password"
-                  name="password"
-                  className="w-full px-4 py-3 bg-orange-50 border border-orange-200 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors text-gray-700 placeholder-gray-400"
-                  placeholder="Create a secure password"
-                  minLength="8"
-                  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-                  title="Must be more than 8 characters, including number, lowercase letter, uppercase letter"
-                  required
-                />
-                <span className="text-sm text-gray-500 mt-2 block">
-                  Password must contain at least 8 characters, including
-                  numbers, lowercase and uppercase letters
-                </span>
+                <div className="relative">
+                  <input
+                    type="password"
+                    name="password"
+                    className="w-full px-4 py-4 bg-white/10 border border-white/20 rounded-xl focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400 transition-all duration-300 text-white placeholder-gray-300 backdrop-blur-sm group-hover:bg-white/15"
+                    placeholder="Create a secure password"
+                    minLength="8"
+                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                    title="Must be more than 8 characters, including number, lowercase letter, uppercase letter"
+                    required
+                  />
+                  <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-yellow-400/20 to-orange-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+                </div>
+                <div className="mt-3 p-3 bg-white/5 rounded-lg border border-white/10">
+                  <p className="text-sm text-gray-300 flex items-center">
+                    <svg
+                      className="w-4 h-4 mr-2 text-yellow-400"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                    Password must contain at least 8 characters, including
+                    numbers, lowercase and uppercase letters
+                  </p>
+                </div>
               </div>
 
+              {/* Submit Button */}
               <button
                 type="submit"
-                className="w-full bg-gradient-to-r from-blue-900 to-amber-300 text-white py-3 px-6 rounded-lg font-medium hover:from-orange-600 hover:to-amber-600 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 transition-all transform hover:scale-[1.02]"
+                className="w-full bg-gradient-to-r from-yellow-400 via-orange-400 to-pink-500 text-white py-4 px-6 rounded-xl font-semibold hover:from-yellow-500 hover:via-orange-500 hover:to-pink-600 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2 focus:ring-offset-transparent transition-all duration-300 transform hover:scale-[1.02] hover:shadow-lg shadow-xl"
               >
-                Create Account
+                <span className="flex items-center justify-center">
+                  <svg
+                    className="w-5 h-5 mr-2"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+                    />
+                  </svg>
+                  Create Account
+                </span>
               </button>
 
-              <div className="relative my-6">
+              {/* Divider */}
+              <div className="relative my-8">
                 <div className="absolute inset-0 flex items-center">
-                  <div className="w-full border-t border-gray-200"></div>
+                  <div className="w-full border-t border-white/20"></div>
                 </div>
                 <div className="relative flex justify-center text-sm">
-                  <span className="px-2 bg-white text-gray-500">
+                  <span className="px-4 bg-transparent text-gray-300 font-medium">
                     Or continue with
                   </span>
                 </div>
               </div>
 
-              <p className="text-center text-gray-600">
-                Already have an account?{" "}
-                <Link
-                  to="/login"
-                  className="text-orange-500 hover:text-orange-600 font-medium"
-                >
-                  Sign in
-                </Link>
-              </p>
+              {/* Login Link */}
+              <div className="text-center">
+                <p className="text-gray-300">
+                  Already have an account?{" "}
+                  <Link
+                    to="/login"
+                    className="text-yellow-400 hover:text-yellow-300 font-semibold transition-colors duration-300 hover:underline"
+                  >
+                    Sign in here
+                  </Link>
+                </p>
+              </div>
             </form>
           </div>
+
+          {/* Decorative elements */}
+          <div className="absolute -top-10 -left-10 w-20 h-20 bg-gradient-to-r from-yellow-400/30 to-orange-400/30 rounded-full blur-xl"></div>
+          <div className="absolute -bottom-10 -right-10 w-20 h-20 bg-gradient-to-r from-pink-400/30 to-purple-400/30 rounded-full blur-xl"></div>
         </div>
       </div>
     </div>
