@@ -52,13 +52,13 @@ const Dashboard = () => {
           <ul className="space-y-3">
             {isAdmin ? (
               <div>
-                <li>
+                <li className="py-2">
                   <NavLink
                     to="/dashboard"
                     className={({ isActive }) =>
                       `flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 ${
                         isActive
-                          ? "bg-white text-orange-500 shadow-md"
+                          ? " text-orange-500 shadow-md border-b-2"
                           : "text-white hover:bg-orange-500 hover:shadow-md"
                       }`
                     }
@@ -66,13 +66,13 @@ const Dashboard = () => {
                     <FaHome className="text-lg" /> Admin Home
                   </NavLink>
                 </li>
-                <li>
+                <li className="py-2">
                   <NavLink
                     to="/dashboard/add-items"
                     className={({ isActive }) =>
                       `flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 ${
                         isActive
-                          ? "bg-white text-orange-500 shadow-md"
+                          ? " text-orange-500 shadow-md border-b-2"
                           : "text-white hover:bg-orange-500 hover:shadow-md"
                       }`
                     }
@@ -80,13 +80,13 @@ const Dashboard = () => {
                     <FaBox className="text-lg" /> Add Items
                   </NavLink>
                 </li>
-                <li>
+                <li className="py-2">
                   <NavLink
                     to="/dashboard/manage-items"
                     className={({ isActive }) =>
                       `flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 ${
                         isActive
-                          ? "bg-white text-orange-500 shadow-md"
+                          ? " text-orange-500 shadow-md border-b-2"
                           : "text-white hover:bg-orange-500 hover:shadow-md"
                       }`
                     }
@@ -94,13 +94,13 @@ const Dashboard = () => {
                     <FaListAlt className="text-lg" /> Manage Items
                   </NavLink>
                 </li>
-                <li>
+                <li className="py-2">
                   <NavLink
                     to="/dashboard/manage-booking"
                     className={({ isActive }) =>
                       `flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 ${
                         isActive
-                          ? "bg-white text-orange-500 shadow-md"
+                          ? " text-orange-500 shadow-md border-b-2"
                           : "text-white hover:bg-orange-500 hover:shadow-md"
                       }`
                     }
@@ -108,13 +108,13 @@ const Dashboard = () => {
                     <FaBookmark className="text-lg" /> Manage Bookings
                   </NavLink>
                 </li>
-                <li>
+                <li className="py-2">
                   <NavLink
                     to="/dashboard/users"
                     className={({ isActive }) =>
                       `flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 ${
                         isActive
-                          ? "bg-white text-orange-500 shadow-md"
+                          ? " text-orange-500 shadow-md border-b-2"
                           : "text-white hover:bg-orange-500 hover:shadow-md"
                       }`
                     }
@@ -131,7 +131,7 @@ const Dashboard = () => {
                     className={({ isActive }) =>
                       `flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 ${
                         isActive
-                          ? "bg-white text-orange-500 shadow-md"
+                          ? " text-orange-500 shadow-md border-b-2"
                           : "text-white hover:bg-orange-500 hover:shadow-md"
                       }`
                     }
@@ -145,7 +145,7 @@ const Dashboard = () => {
                     className={({ isActive }) =>
                       `flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 ${
                         isActive
-                          ? "bg-white text-orange-500 shadow-md"
+                          ? " text-orange-500 shadow-md border-b-2"
                           : "text-white hover:bg-orange-500 hover:shadow-md"
                       }`
                     }
@@ -159,7 +159,7 @@ const Dashboard = () => {
                     className={({ isActive }) =>
                       `flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 ${
                         isActive
-                          ? "bg-white text-orange-500 shadow-md"
+                          ? " text-orange-500 shadow-md border-b-2"
                           : "text-white hover:bg-orange-500 hover:shadow-md"
                       }`
                     }
@@ -173,7 +173,7 @@ const Dashboard = () => {
                     className={({ isActive }) =>
                       `flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 ${
                         isActive
-                          ? "bg-white text-orange-500 shadow-md"
+                          ? " text-orange-500 shadow-md border-b-2"
                           : "text-white hover:bg-orange-500 hover:shadow-md"
                       }`
                     }
@@ -187,7 +187,7 @@ const Dashboard = () => {
                     className={({ isActive }) =>
                       `flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 ${
                         isActive
-                          ? "bg-white text-orange-500 shadow-md"
+                          ? " text-orange-500 shadow-md border-b-2"
                           : "text-white hover:bg-orange-500 hover:shadow-md"
                       }`
                     }
@@ -201,7 +201,7 @@ const Dashboard = () => {
                     className={({ isActive }) =>
                       `flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 ${
                         isActive
-                          ? "bg-white text-orange-500 shadow-md"
+                          ? " text-orange-500 shadow-md border-b-2"
                           : "text-white hover:bg-orange-500 hover:shadow-md"
                       }`
                     }
@@ -220,7 +220,7 @@ const Dashboard = () => {
                 className={({ isActive }) =>
                   `flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 ${
                     isActive
-                      ? "bg-white text-orange-500 shadow-md"
+                      ? " text-orange-500 shadow-md border-b-2"
                       : "text-white hover:bg-orange-500 hover:shadow-md"
                   }`
                 }
@@ -234,7 +234,7 @@ const Dashboard = () => {
                 className={({ isActive }) =>
                   `flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 ${
                     isActive
-                      ? "bg-white text-orange-500 shadow-md"
+                      ? " text-orange-500 shadow-md border-b-2"
                       : "text-white hover:bg-orange-500 hover:shadow-md"
                   }`
                 }
@@ -248,7 +248,7 @@ const Dashboard = () => {
                 className={({ isActive }) =>
                   `flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 ${
                     isActive
-                      ? "bg-white text-orange-500 shadow-md"
+                      ? " text-orange-500 shadow-md border-b-2"
                       : "text-white hover:bg-orange-500 hover:shadow-md"
                   }`
                 }
@@ -262,7 +262,7 @@ const Dashboard = () => {
                 className={({ isActive }) =>
                   `flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 ${
                     isActive
-                      ? "bg-white text-orange-500 shadow-md"
+                      ? " text-orange-500 shadow-md border-b-2"
                       : "text-white hover:bg-orange-500 hover:shadow-md"
                   }`
                 }
@@ -275,7 +275,7 @@ const Dashboard = () => {
       </div>
 
       <div className="flex-1 p-4 md:p-8">
-        <div className="max-w-7xl mx-auto bg-white rounded-lg shadow-lg p-6 backdrop-blur-sm bg-opacity-90">
+        <div className="max-w-7xl mx-auto bg-gradient-to-r from-blue-900 to-amber-200 rounded-lg shadow-lg p-6 backdrop-blur-sm bg-opacity-90">
           <Outlet />
         </div>
       </div>

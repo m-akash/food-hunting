@@ -16,6 +16,7 @@ const createMenu = async (req, res) => {
       id: uuidv4(),
       name: req.body.name,
       desc: req.body.desc,
+      image : req.body.image,
       category: req.body.category,
       price: Number(req.body.price),
     });

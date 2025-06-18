@@ -15,6 +15,7 @@ const menuSchema = mongoose.Schema({
   },
   image: {
     type: String,
+    require: true,
   },
   category: {
     type: String,
