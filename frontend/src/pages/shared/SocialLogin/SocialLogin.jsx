@@ -19,12 +19,11 @@ const SocialLogin = () => {
     showLoadingAlert("Signing in with Google...");
     loginWithGoogle()
       .then((result) => {
-        const newUser = {
+        const userData = {
           email: result.user?.email,
           name: result.user?.displayName,
-          password: null,
         };
-        axiosPublic.post("/api/users/register", newUser).then(() => {
+        axiosPublic.post("/api/users/social-login", userData).then(() => {
           closeLoadingAlert();
           showSuccessAlert("Successfully signed in with Google!");
           navigate("/");

@@ -14,16 +14,50 @@ const getUsers = async (req, res) => {
 
 const createUser = async (req, res) => {
   try {
+    const existing = await users.findOne({ email: req.body.email });
+    if (existing) {
+      return res.status(400).json({ message: "User already exists" });
+    }
     bcrypt.hash(req.body.password, saltRounds, async function (err, hash) {
+      if (err) {
+        return res.status(500).json({ message: "Error hashing password" });
+      }
       const newUser = new users({
         id: uuidv4(),
         name: req.body.name,
         email: req.body.email,
         password: hash,
+        lastLogin: new Date(),
       });
       await newUser.save();
       res.status(201).json(newUser);
     });
+  } catch (error) {
+    res.status(500).send(error.message);
+  }
+};
+
+const socialLogin = async (req, res) => {
+  try {
+    const { email, name } = req.body;
+    const user = await users.findOne({ email: email });
+    if (user) {
+      user.lastLogin = new Date();
+      await user.save();
+      res.status(200).json({ message: "Login successful", user });
+    } else {
+      const newUser = new users({
+        id: uuidv4(),
+        name: name,
+        email: email,
+        password: null,
+        lastLogin: new Date(),
+      });
+      await newUser.save();
+      res
+        .status(201)
+        .json({ message: "User created successfully", user: newUser });
+    }
   } catch (error) {
     res.status(500).send(error.message);
   }
@@ -73,4 +107,11 @@ const deleteUser = async (req, res) => {
   }
 };
 
-module.exports = { getUsers, createUser, loginUser, makeAdmin, deleteUser };
+module.exports = {
+  getUsers,
+  createUser,
+  loginUser,
+  makeAdmin,
+  deleteUser,
+  socialLogin,
+};

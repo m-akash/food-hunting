@@ -10,7 +10,7 @@ import {
 } from "../../utils/alertUtils";
 
 const Register = () => {
-  const { createUser } = useContext(AuthContext);
+  const { createUser, logoutUser } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleRegister = (event) => {
@@ -24,6 +24,9 @@ const Register = () => {
 
     createUser(email, password)
       .then(() => {
+        return logoutUser();
+      })
+      .then(() => {
         const newUser = { name, email, password };
         fetch("http://localhost:3000/api/users/register", {
           method: "POST",
@@ -35,15 +38,18 @@ const Register = () => {
           .then((res) => res.json())
           .then((data) => {
             closeLoadingAlert();
-            if (data.insertedId) {
+            if (data.id || data._id) {
               showSuccessAlert("Registration successful!");
               navigate("/login");
+            } else if (data.message === "User already exists") {
+              showErrorAlert("User with this email already exists.");
             } else {
               showErrorAlert("Registration failed. Please try again.");
             }
           })
-          .catch(() => {
+          .catch((error) => {
             closeLoadingAlert();
+            console.error("Registration error:", error);
             showErrorAlert("An error occurred during registration.");
           });
       })

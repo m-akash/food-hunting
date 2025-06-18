@@ -85,7 +85,7 @@ const AllUsers = () => {
                     <div className="text-sm text-gray-500">{user.email}</div>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                    12/16/2020
+                    {user.lastLogin}
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
                     {user.role === "admin" ? (

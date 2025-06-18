@@ -16,8 +16,21 @@ const UsersSchema = new mongoose.Schema({
   },
   password: {
     type: String,
-    require: true,
-    minlength: 8,
+    require: false,
+    validate: {
+      validator: function (v) {
+        return !v || v.length >= 8;
+      },
+      message: "Password must be at least 8 characters long",
+    },
+  },
+  createdAt: {
+    type: Date,
+    default: () => new Date(),
+  },
+  lastLogin: {
+    type: Date,
+    default: null,
   },
   role: {
     type: String,
