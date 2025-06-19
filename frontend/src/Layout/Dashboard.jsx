@@ -30,7 +30,7 @@ const Dashboard = () => {
 
   return (
     <div
-      className="flex flex-col md:flex-row min-h-screen max-w-7xl mx-auto bg-gradient-to-r from-blue-900 to-amber-200"
+      className="flex flex-col md:flex-row min-h-screen bg-gradient-to-r from-blue-900 to-amber-200"
       data-theme="light"
     >
       <button
@@ -274,7 +274,7 @@ const Dashboard = () => {
         </div>
       </div>
 
-      <div className="flex-1 p-4 md:p-8">
+      <div className="flex-1 p-4 md:p-8 h-screen overflow-y-auto">
         <div className="max-w-7xl mx-auto bg-gradient-to-r from-blue-900 to-amber-200 rounded-lg shadow-lg p-6 backdrop-blur-sm bg-opacity-90">
           <Outlet />
         </div>

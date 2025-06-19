@@ -16,7 +16,7 @@ const createMenu = async (req, res) => {
       id: uuidv4(),
       name: req.body.name,
       desc: req.body.desc,
-      image : req.body.image,
+      image: req.body.image,
       category: req.body.category,
       price: Number(req.body.price),
     });
@@ -27,4 +27,17 @@ const createMenu = async (req, res) => {
   }
 };
 
-module.exports = { getMenu, createMenu };
+const deleteMenuItem = async (req, res) => {
+  try {
+    const item = await foodMenu.findOne({ id: req.params.id });
+    if (!item) {
+      res.status(404).json({ message: "Item not found!" });
+    }
+    const deleteItem = await foodMenu.deleteOne(item);
+    res.status(200).json(deleteItem);
+  } catch (error) {
+    res.status(500).send(error.message);
+  }
+};
+
+module.exports = { getMenu, createMenu, deleteMenuItem };
