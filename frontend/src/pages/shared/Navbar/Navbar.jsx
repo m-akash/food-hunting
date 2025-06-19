@@ -2,6 +2,7 @@ import React from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 import useCart from "../../../hooks/useCart";
+import defaultProfile from "../../../assets/others/profile.png";
 
 const Navbar = () => {
   const { user, logoutUser } = useAuth();
@@ -182,7 +183,7 @@ const Navbar = () => {
                   <div className="w-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
                     <img
                       alt="User avatar"
-                      src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+                      src={user?.photoURL || defaultProfile}
                     />
                   </div>
                 </div>

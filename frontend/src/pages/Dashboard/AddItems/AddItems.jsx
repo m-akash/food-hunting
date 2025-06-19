@@ -12,38 +12,46 @@ import {
 
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
-import { showSuccessAlert } from "../../../utils/alertUtils";
+import { showSuccessAlert, showErrorAlert } from "../../../utils/alertUtils";
 
 const img_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const img_hosting_api = `https://api.imgbb.com/1/upload?key=${img_hosting_key}`;
 
 const AddItems = () => {
+  const { register, handleSubmit, reset } = useForm();
   const axiosPublic = useAxiosPublic();
   const axiosSecure = useAxiosSecure();
-  const { register, handleSubmit } = useForm();
 
   const onSubmit = async (data) => {
-    console.log(data);
-    const imageFile = { image: data.image[0] };
-    const res = await axiosPublic.post(img_hosting_api, imageFile, {
-      headers: {
-        "content-type": "multipart/form-data",
-      },
-    });
-    if (res.data.success) {
-      const menuItem = {
-        name: data.name,
-        desc: data.desc,
-        image: res.data.data.display_url,
-        category: data.category,
-        price: parseFloat(data.price),
-      };
-      const menu = await axiosSecure.post("/api/menu", menuItem);
-      if (menu.data.insertedId) {
-        showSuccessAlert("Item created successfully!");
+    try {
+      console.log(data);
+      const imageFile = { image: data.image[0] };
+      const res = await axiosPublic.post(img_hosting_api, imageFile, {
+        headers: {
+          "content-type": "multipart/form-data",
+        },
+      });
+      if (res.data.success) {
+        const menuItem = {
+          name: data.name,
+          desc: data.desc,
+          image: res.data.data.display_url,
+          category: data.category,
+          price: parseFloat(data.price),
+        };
+        const menu = await axiosSecure.post("/api/menu", menuItem);
+        if (menu.data.insertedId) {
+          reset();
+          showSuccessAlert("Menu item added successfully!");
+        }
+      } else {
+        showErrorAlert("Image upload failed. Please try again.");
       }
+      console.log(res.data);
+    } catch (error) {
+      showErrorAlert("Something went wrong. Please try again.");
+      console.error(error);
     }
-    console.log(res.data);
   };
 
   return (
