@@ -1,14 +1,38 @@
 import { FaEdit, FaTrash } from "react-icons/fa";
 import useMenu from "../../../hooks/useMenu";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import {
+  showSuccessAlert,
+  showErrorAlert,
+  showLoadingAlert,
+  closeLoadingAlert,
+  showConfirmationDialog,
+} from "../../../utils/alertUtils";
+import { Link } from "react-router-dom";
 
 const ManageItems = () => {
   const [menu, refetch] = useMenu();
   const axiosSecure = useAxiosSecure();
 
   const handleDeleteItem = (itemId) => {
-    axiosSecure.delete(`/api/menu/${itemId}`).then(() => {
-      refetch();
+    showConfirmationDialog(
+      "Delete Item",
+      "Are you sure you want to delete this menu item?"
+    ).then((result) => {
+      if (result.isConfirmed) {
+        showLoadingAlert("Deleting item...");
+        axiosSecure
+          .delete(`/api/menu/${itemId}`)
+          .then(() => {
+            closeLoadingAlert();
+            showSuccessAlert("Menu item deleted successfully!");
+            refetch();
+          })
+          .catch(() => {
+            closeLoadingAlert();
+            showErrorAlert("Failed to delete menu item. Please try again.");
+          });
+      }
     });
   };
   return (
@@ -66,10 +90,12 @@ const ManageItems = () => {
                 <p className="text-sm text-gray-700 truncate">{item.price}</p>
               </td>
               <td className="py-3 px-2 text-center">
-                <button className="btn btn-xs md:btn-sm bg-blue-500 hover:bg-blue-600 text-white rounded shadow flex items-center gap-1 mx-auto">
-                  <FaEdit className="inline-block" />
-                  <span className="hidden sm:inline">Update</span>
-                </button>
+                <Link to={`/dashboard/update-item/${item.id}`}>
+                  <button className="btn btn-xs md:btn-sm bg-blue-500 hover:bg-blue-600 text-white rounded shadow flex items-center gap-1 mx-auto">
+                    <FaEdit className="inline-block" />
+                    <span className="hidden sm:inline">Update</span>
+                  </button>
+                </Link>
               </td>
               <td className="py-3 px-2 text-center">
                 <button

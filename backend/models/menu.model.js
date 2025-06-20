@@ -25,6 +25,9 @@ const menuSchema = mongoose.Schema({
     type: Number,
     require: true,
   },
+  recipe: {
+    type: String,
+  },
 });
 
 module.exports = mongoose.model("foodMenu", menuSchema);
