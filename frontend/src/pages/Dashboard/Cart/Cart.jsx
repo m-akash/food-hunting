@@ -7,6 +7,7 @@ import {
   closeLoadingAlert,
   showConfirmationDialog,
 } from "../../../utils/alertUtils";
+import { Link } from "react-router-dom";
 
 const Cart = () => {
   const [cart] = useCart();
@@ -36,33 +37,13 @@ const Cart = () => {
     });
   };
 
-  const handleProcessPayment = () => {
-    if (cart.length === 0) {
-      showErrorAlert("Your cart is empty!");
-      return;
-    }
-    showConfirmationDialog(
-      "Process Payment",
-      "Are you sure you want to proceed with the payment?"
-    ).then((result) => {
-      if (result.isConfirmed) {
-        showLoadingAlert("Processing payment...");
-        // Add your payment processing logic here
-        setTimeout(() => {
-          closeLoadingAlert();
-          showSuccessAlert("Payment processed successfully!");
-        }, 2000);
-      }
-    });
-  };
-
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <div className="bg-white rounded-lg shadow-md p-6 mb-8">
         <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
           <div className="text-center sm:text-left">
             <h2 className="text-2xl font-bold text-gray-800">
-              Total Order: {cart.length}
+              Total Items: {cart.length}
             </h2>
             <p className="text-gray-600 mt-1">Items in your cart</p>
           </div>
@@ -72,12 +53,21 @@ const Cart = () => {
             </h2>
             <p className="text-gray-600 mt-1">Total Amount</p>
           </div>
-          <button
-            onClick={handleProcessPayment}
-            className="btn btn-accent w-full sm:w-auto hover:scale-105 transition-transform"
-          >
-            Process to Pay
-          </button>
+
+          {cart.length ? (
+            <Link to="/dashboard/payment">
+              <button className="btn btn-accent w-full sm:w-auto hover:scale-105 transition-transform">
+                Process to Pay
+              </button>
+            </Link>
+          ) : (
+            <button
+              disabled
+              className="btn btn-accent w-full sm:w-auto hover:scale-105 transition-transform"
+            >
+              Process to Pay
+            </button>
+          )}
         </div>
       </div>
 

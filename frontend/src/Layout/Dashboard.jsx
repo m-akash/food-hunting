@@ -94,20 +94,7 @@ const Dashboard = () => {
                     <FaListAlt className="text-lg" /> Manage Items
                   </NavLink>
                 </li>
-                <li className="py-2">
-                  <NavLink
-                    to="/dashboard/manage-booking"
-                    className={({ isActive }) =>
-                      `flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 ${
-                        isActive
-                          ? " text-orange-500 shadow-md border-b-2"
-                          : "text-white hover:bg-orange-500 hover:shadow-md"
-                      }`
-                    }
-                  >
-                    <FaBookmark className="text-lg" /> Manage Bookings
-                  </NavLink>
-                </li>
+
                 <li className="py-2">
                   <NavLink
                     to="/dashboard/users"
@@ -193,20 +180,6 @@ const Dashboard = () => {
                     }
                   >
                     <FaStar className="text-lg" /> Add Review
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink
-                    to="/dashboard/booking"
-                    className={({ isActive }) =>
-                      `flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 ${
-                        isActive
-                          ? " text-orange-500 shadow-md border-b-2"
-                          : "text-white hover:bg-orange-500 hover:shadow-md"
-                      }`
-                    }
-                  >
-                    <FaClipboardList className="text-lg" /> My Booking
                   </NavLink>
                 </li>
               </div>

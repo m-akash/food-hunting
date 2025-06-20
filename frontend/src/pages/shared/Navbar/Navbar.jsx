@@ -58,7 +58,7 @@ const Navbar = () => {
               : "text-white hover:text-amber-200 transition-colors duration-300"
           }
         >
-          Order Food
+          Order-Food
         </NavLink>
       </li>
       <li>
