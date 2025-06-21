@@ -74,7 +74,6 @@ const Register = () => {
         <title>HungerHub | Register</title>
       </Helmet>
 
-     
       <div className="relative z-10 container mx-auto px-4 md:px-8 py-8">
         <div className="max-w-2xl mx-auto">
           <div className="text-center mb-8">

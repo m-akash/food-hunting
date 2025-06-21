@@ -90,7 +90,7 @@ const Cart = () => {
             <tbody className="divide-y divide-gray-200">
               {cart.map((item) => (
                 <tr
-                  key={item.itemId}
+                  key={item.id}
                   className="hover:bg-gray-50 transition-colors"
                 >
                   <td className="px-6 py-4">
@@ -121,7 +121,7 @@ const Cart = () => {
                   </td>
                   <td className="px-6 py-4">
                     <button
-                      onClick={() => handleRemoveItem(item.itemId)}
+                      onClick={() => handleRemoveItem(item.id)}
                       className="btn btn-error btn-sm hover:scale-105 transition-transform"
                     >
                       Remove

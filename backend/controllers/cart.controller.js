@@ -15,6 +15,7 @@ const getCarts = async (req, res) => {
 const createCart = async (req, res) => {
   try {
     const cartItem = new carts({
+      id: uuidv4(),
       itemId: uuidv4(),
       userEmail: req.body.userEmail,
       foodName: req.body.foodName,
@@ -29,10 +30,19 @@ const createCart = async (req, res) => {
   }
 };
 
+//TODO
+// const payments = async (req, res) => {
+//   try {
+
+//   } catch (error) {
+//     res.status(500).send(error.message);
+//   }
+// };
+
 const deleteCartById = async (req, res) => {
   try {
-    const itemId = req.params.itemId;
-    const result = await carts.deleteOne({ itemId: itemId });
+    const id = req.params.id;
+    const result = await carts.deleteOne({ id: id });
     res.status(200).json(result);
   } catch (error) {
     res.status(500).send(error.message);

@@ -18,8 +18,10 @@ import {
   FaPhoneAlt,
 } from "react-icons/fa";
 import useAdmin from "../hooks/useAdmin";
+import useCart from "../hooks/useCart";
 
 const Dashboard = () => {
+  const [cart] = useCart();
   const [isOpen, setIsOpen] = useState(false);
 
   const [isAdmin] = useAdmin();
@@ -29,10 +31,7 @@ const Dashboard = () => {
   };
 
   return (
-    <div
-      className="flex flex-col md:flex-row min-h-screen bg-gradient-to-r from-blue-900 to-amber-200"
-      data-theme="light"
-    >
+    <div className="flex flex-col md:flex-row min-h-screen bg-gradient-to-r from-blue-900 to-amber-200">
       <button
         onClick={toggleSidebar}
         className="md:hidden fixed top-4 left-4 z-50 p-2 rounded-md bg-orange-400 text-white hover:bg-orange-500 transition-colors shadow-lg"
@@ -165,7 +164,8 @@ const Dashboard = () => {
                       }`
                     }
                   >
-                    <FaShoppingCart className="text-lg" /> My Cart
+                    <FaShoppingCart className="text-lg" /> My Cart ({cart.length}
+                    )
                   </NavLink>
                 </li>
                 <li>
