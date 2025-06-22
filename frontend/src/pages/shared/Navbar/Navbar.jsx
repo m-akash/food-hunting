@@ -188,7 +188,7 @@ const Navbar = () => {
                 >
                   <div className="w-11 h-11 rounded-full ring-2 ring-amber-400 ring-offset-2 ring-offset-white overflow-hidden">
                     <img
-                      alt="User avatar"
+                      alt="avatar"
                       src={user?.photoURL || defaultProfile}
                       className="object-cover w-full h-full"
                     />

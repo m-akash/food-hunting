@@ -14,14 +14,16 @@ const getCarts = async (req, res) => {
 
 const createCart = async (req, res) => {
   try {
+    const { userEmail, foodName, foodImg, foodCategory, price, menuItemId } =
+      req.body;
     const cartItem = new carts({
       id: uuidv4(),
-      itemId: uuidv4(),
-      userEmail: req.body.userEmail,
-      foodName: req.body.foodName,
-      foodImg: req.body.foodImg,
-      foodCategory: req.body.foodCategory,
-      price: Number(req.body.price),
+      itemId: menuItemId,
+      userEmail: userEmail,
+      foodName: foodName,
+      foodImg: foodImg,
+      foodCategory: foodCategory,
+      price: Number(price),
     });
     await cartItem.save();
     res.status(201).json(cartItem);
@@ -29,15 +31,6 @@ const createCart = async (req, res) => {
     res.status(500).send(error.message);
   }
 };
-
-//TODO
-// const payments = async (req, res) => {
-//   try {
-
-//   } catch (error) {
-//     res.status(500).send(error.message);
-//   }
-// };
 
 const deleteCartById = async (req, res) => {
   try {

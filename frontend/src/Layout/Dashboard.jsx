@@ -6,7 +6,6 @@ import {
   FaHistory,
   FaShoppingCart,
   FaStar,
-  FaClipboardList,
   FaBars,
   FaTimes,
   FaUtensils,
@@ -125,20 +124,7 @@ const Dashboard = () => {
                     <FaHome className="text-lg" /> User Home
                   </NavLink>
                 </li>
-                <li>
-                  <NavLink
-                    to="/dashboard/reservation"
-                    className={({ isActive }) =>
-                      `flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 ${
-                        isActive
-                          ? " text-orange-500 shadow-md border-b-2"
-                          : "text-white hover:bg-orange-500 hover:shadow-md"
-                      }`
-                    }
-                  >
-                    <FaCalendarCheck className="text-lg" /> Reservation
-                  </NavLink>
-                </li>
+
                 <li>
                   <NavLink
                     to="/dashboard/payment-history"
@@ -164,8 +150,8 @@ const Dashboard = () => {
                       }`
                     }
                   >
-                    <FaShoppingCart className="text-lg" /> My Cart ({cart.length}
-                    )
+                    <FaShoppingCart className="text-lg" /> My Cart (
+                    {cart.length})
                   </NavLink>
                 </li>
                 <li>

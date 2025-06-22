@@ -3,12 +3,7 @@ import useAuth from "../../hooks/useAuth";
 import { useLocation, useNavigate } from "react-router-dom";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import useCart from "../../hooks/useCart";
-import {
-  showSuccessAlert,
-  showErrorAlert,
-  showLoadingAlert,
-  closeLoadingAlert,
-} from "../../utils/alertUtils";
+import { showSuccessAlert, showErrorAlert } from "../../utils/alertUtils";
 
 const FoodCart = ({ item }) => {
   const { user } = useAuth();
@@ -19,9 +14,8 @@ const FoodCart = ({ item }) => {
 
   const handleAddToCart = () => {
     if (user && user?.email) {
-      showLoadingAlert("Adding to cart...");
       const cartItem = {
-        itemId: item.id,
+        menuItemId: item.id,
         userEmail: user.email,
         foodName: item.name,
         foodImg: item.image,
@@ -31,12 +25,10 @@ const FoodCart = ({ item }) => {
       axiosSecure
         .post("/api/carts", cartItem)
         .then(() => {
-          closeLoadingAlert();
           showSuccessAlert("Item added to cart!");
           refetch();
         })
         .catch(() => {
-          closeLoadingAlert();
           showErrorAlert("Failed to add item to cart. Please try again.");
         });
     } else {

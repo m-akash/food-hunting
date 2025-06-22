@@ -5,13 +5,14 @@ const cors = require("cors");
 const jwt = require("jsonwebtoken");
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 require("./config/db");
+const { jwtSecret, jwtExpire } = require("./config/jwt");
 
 const userRouter = require("./routers/users.route");
 const menuRouter = require("./routers/menu.route");
 const reviewRouter = require("./routers/reviews.route");
 const contactRouter = require("./routers/contact.route");
 const cartRouter = require("./routers/cart.route");
-const { jwtSecret, jwtExpire } = require("./config/jwt");
+const paymentRouter = require("./routers/payment.route");
 
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
@@ -26,6 +27,8 @@ app.use("/api/review", reviewRouter);
 app.use("/api/contact", contactRouter);
 
 app.use("/api/carts", cartRouter);
+
+app.use("/payments", paymentRouter);
 
 app.get("/", (req, res) => {
   res.send("hello");

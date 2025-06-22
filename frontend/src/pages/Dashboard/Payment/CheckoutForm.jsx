@@ -3,8 +3,11 @@ import { useEffect, useState } from "react";
 import useCart from "../../../hooks/useCart";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import useAuth from "../../../hooks/useAuth";
+import { showSuccessAlert, showErrorAlert } from "../../../utils/alertUtils";
+import { useNavigate } from "react-router-dom";
 
 const CheckoutForm = () => {
+  const [cart, refetch] = useCart();
   const { user } = useAuth();
   const stripe = useStripe();
   const elements = useElements();
@@ -12,16 +15,18 @@ const CheckoutForm = () => {
   const [clientSecret, setClientSecret] = useState("");
   const [transactionId, setTransactionId] = useState("");
   const axiosSecure = useAxiosSecure();
-  const [cart] = useCart();
+  const navigate = useNavigate();
   const totalPrice = cart.reduce((price, item) => price + item.price, 0);
 
   useEffect(() => {
-    axiosSecure
-      .post("/create-payment-intent", { price: totalPrice })
-      .then((res) => {
-        console.log(res.data.clientSecret);
-        setClientSecret(res.data.clientSecret);
-      });
+    if (totalPrice > 0) {
+      axiosSecure
+        .post("/create-payment-intent", { price: totalPrice })
+        .then((res) => {
+          console.log(res.data.clientSecret);
+          setClientSecret(res.data.clientSecret);
+        });
+    }
   }, [axiosSecure, totalPrice]);
 
   const handleSubmit = async (event) => {
@@ -41,6 +46,7 @@ const CheckoutForm = () => {
     if (error) {
       console.log("Payment Error", error);
       setErrorMessage(error.message);
+      showErrorAlert(error.message);
     } else {
       console.log("Payment Method", paymentMethod);
       setErrorMessage("");
@@ -57,23 +63,30 @@ const CheckoutForm = () => {
       });
     if (confirmError) {
       console.log("confirm error");
+      showErrorAlert("Failed to confirm payment.");
     } else {
       console.log("Payment intent", paymentIntent);
       if (paymentIntent.status === "succeeded") {
         console.log("transaction id: ", paymentIntent.id);
         setTransactionId(paymentIntent.id);
 
-        // const paymentInfo = {
-        //   email: cart.userEmail,
-        //   price: totalPrice,
-        //   transactionId: paymentIntent.id,
-        //   date: new Date(),
-        //   cartId: cart.map((item) => item.id),
-        //   menuItemId: cart.map((item) => item.itemId),
-        //   status: "pending",
-        // };
+        const paymentInfo = {
+          email: user.email,
+          totalPrice: totalPrice,
+          transactionId: paymentIntent.id,
+          date: new Date(),
+          cartId: cart.map((item) => item.id),
+          menuItemId: cart.map((item) => item.itemId),
+          status: "success",
+        };
+        const res = await axiosSecure.post("/payments", paymentInfo);
+        console.log("Payment Saved: ", res);
+        refetch();
+        if (res.data.paymentInfo._id) {
+          showSuccessAlert("Payment Successful!");
+          navigate("/dashboard/cart");
+        }
       }
-      //   axiosSecure.post("/payments", )
     }
   };
   return (
