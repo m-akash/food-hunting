@@ -52,7 +52,7 @@ const Dashboard = () => {
               <div>
                 <li className="py-2">
                   <NavLink
-                    to="/dashboard"
+                    to="/dashboard/admin-home"
                     className={({ isActive }) =>
                       `flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 ${
                         isActive
@@ -110,9 +110,9 @@ const Dashboard = () => {
               </div>
             ) : (
               <div>
-                <li>
+                <li className="py-2">
                   <NavLink
-                    to="/dashboard"
+                    to="/dashboard/user-home"
                     className={({ isActive }) =>
                       `flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 ${
                         isActive
@@ -125,7 +125,7 @@ const Dashboard = () => {
                   </NavLink>
                 </li>
 
-                <li>
+                <li className="py-2">
                   <NavLink
                     to="/dashboard/payment-history"
                     className={({ isActive }) =>
@@ -139,7 +139,7 @@ const Dashboard = () => {
                     <FaHistory className="text-lg" /> Payment History
                   </NavLink>
                 </li>
-                <li>
+                <li className="py-2">
                   <NavLink
                     to="/dashboard/cart"
                     className={({ isActive }) =>
@@ -154,7 +154,7 @@ const Dashboard = () => {
                     {cart.length})
                   </NavLink>
                 </li>
-                <li>
+                <li className="py-2">
                   <NavLink
                     to="/dashboard/review"
                     className={({ isActive }) =>

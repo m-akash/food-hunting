@@ -36,12 +36,12 @@ const ManageItems = () => {
     });
   };
   return (
-    <div className="overflow-x-auto w-full p-4">
+    <div className="overflow-x-auto w-full p-4 text-black">
       <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center">
         Manage Menu Items
       </h2>
       <table className="table w-full min-w-[600px] bg-white shadow-lg rounded-lg">
-        <thead className="bg-gradient-to-r from-orange-200 to-yellow-100">
+        <thead className="bg-gradient-to-r text-black from-orange-200 to-yellow-100">
           <tr>
             <th className="py-3 px-2 text-left">#</th>
             <th className="py-3 px-2 text-left">Food Image & Name</th>
@@ -74,10 +74,10 @@ const ManageItems = () => {
                     </div>
                   </div>
                   <div className="truncate">
-                    <div className="font-bold text-base truncate">
+                    <div className="font-bold text-base text-black truncate">
                       {item.name}
                     </div>
-                    <div className="text-sm opacity-60 capitalize truncate">
+                    <div className="text-sm opacity-60 text-black capitalize truncate">
                       {item.category}
                     </div>
                   </div>

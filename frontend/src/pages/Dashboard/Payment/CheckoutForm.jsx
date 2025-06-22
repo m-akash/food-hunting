@@ -79,12 +79,12 @@ const CheckoutForm = () => {
           menuItemId: cart.map((item) => item.itemId),
           status: "success",
         };
-        const res = await axiosSecure.post("/payments", paymentInfo);
+        const res = await axiosSecure.post("/payments/payment", paymentInfo);
         console.log("Payment Saved: ", res);
         refetch();
         if (res.data.paymentInfo._id) {
           showSuccessAlert("Payment Successful!");
-          navigate("/dashboard/cart");
+          navigate("/dashboard/payment-history");
         }
       }
     }

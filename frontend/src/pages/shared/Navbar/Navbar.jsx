@@ -3,9 +3,11 @@ import { Link, NavLink, useNavigate } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 import useCart from "../../../hooks/useCart";
 import defaultProfile from "../../../assets/others/profile.png";
+import useAdmin from "../../../hooks/useAdmin";
 
 const Navbar = () => {
   const { user, logoutUser } = useAuth();
+  const [isAdmin] = useAdmin();
   const navigate = useNavigate();
   const [cart] = useCart();
 
@@ -209,12 +211,22 @@ const Navbar = () => {
                   </li>
 
                   <li>
-                    <Link
-                      to="/dashboard"
-                      className="justify-between text-blue-900 font-semibold hover:bg-amber-100 rounded-lg"
-                    >
-                      Dashboard
-                    </Link>
+                    {user && isAdmin && (
+                      <Link
+                        to="/dashboard/admin-home"
+                        className="justify-between text-blue-900 font-semibold hover:bg-amber-100 rounded-lg"
+                      >
+                        Dashboard
+                      </Link>
+                    )}
+                    {user && !isAdmin && (
+                      <Link
+                        to="/dashboard/user-home"
+                        className="justify-between text-blue-900 font-semibold hover:bg-amber-100 rounded-lg"
+                      >
+                        Dashboard
+                      </Link>
+                    )}
                   </li>
 
                   <li>

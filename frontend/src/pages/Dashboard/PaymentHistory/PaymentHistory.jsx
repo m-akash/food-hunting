@@ -1,8 +1,19 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import SectionTitle from "../../../components/SectionTitle/SectionTitle";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import useAuth from "../../../hooks/useAuth";
 
 const PaymentHistory = () => {
-    
+  const { user } = useAuth();
+  const [history, setHistory] = useState([]);
+  const axiosSecure = useAxiosSecure();
+
+  useEffect(() => {
+    axiosSecure.get(`/payments/payment-history/${user.email}`).then((res) => {
+      setHistory(res.data);
+    });
+  }, [axiosSecure, user.email]);
+
   return (
     <div className="w-full md:w-[870px] mx-auto px-4">
       <SectionTitle
@@ -11,57 +22,25 @@ const PaymentHistory = () => {
       ></SectionTitle>
       <div className="overflow-x-auto">
         <table className="table">
-          {/* head */}
           <thead>
             <tr>
               <th>#</th>
               <th>EMAIL</th>
-              <th>CATEGORY</th>
+              <th>TRANSCTION ID</th>
               <th>TOTAL PRICE</th>
               <th>PAYMENT DATE</th>
             </tr>
           </thead>
           <tbody>
-            {/* row 1 */}
-            <tr>
-              <th>1</th>
-              <td>
-                <div className="font-bold">Hart Hagerty</div>
-              </td>
-              <td>Food Order</td>
-              <td>$25.00</td>
-              <td>2024-07-22</td>
-            </tr>
-            {/* row 2 */}
-            <tr>
-              <th>2</th>
-              <td>
-                <div className="font-bold">Brice Swyre</div>
-              </td>
-              <td>Food Order</td>
-              <td>$30.00</td>
-              <td>2024-07-21</td>
-            </tr>
-            {/* row 3 */}
-            <tr>
-              <th>3</th>
-              <td>
-                <div className="font-bold">Marjy Ferencz</div>
-              </td>
-              <td>Food Order</td>
-              <td>$45.50</td>
-              <td>2024-07-20</td>
-            </tr>
-            {/* row 4 */}
-            <tr>
-              <th>4</th>
-              <td>
-                <div className="font-bold">Yancy Tear</div>
-              </td>
-              <td>Food Order</td>
-              <td>$15.75</td>
-              <td>2024-07-19</td>
-            </tr>
+            {history.map((data, index) => (
+              <tr key={data.id}>
+                <th>{index + 1}</th>
+                <td>{data.email}</td>
+                <td>{data.transactionId}</td>
+                <td>{data.totalPrice}</td>
+                <td>{data.date}</td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>

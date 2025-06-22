@@ -13,6 +13,7 @@ const reviewRouter = require("./routers/reviews.route");
 const contactRouter = require("./routers/contact.route");
 const cartRouter = require("./routers/cart.route");
 const paymentRouter = require("./routers/payment.route");
+const adminStatsRouter = require("./routers/adminStats.route");
 
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
@@ -29,6 +30,8 @@ app.use("/api/contact", contactRouter);
 app.use("/api/carts", cartRouter);
 
 app.use("/payments", paymentRouter);
+
+app.use("/admin-stats", adminStatsRouter);
 
 app.get("/", (req, res) => {
   res.send("hello");

@@ -1,16 +1,9 @@
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
-import { useQuery } from "@tanstack/react-query";
+import useUsers from "../../../hooks/useUsers";
 
 const AllUsers = () => {
   const axiosSecure = useAxiosSecure();
-
-  const { data: users = [], refetch } = useQuery({
-    queryKey: ["users"],
-    queryFn: async () => {
-      const res = await axiosSecure.get("/api/users");
-      return res.data;
-    },
-  });
+  const [users, refetch] = useUsers();
 
   const handleMakeAdmin = (userId) => {
     axiosSecure
@@ -42,7 +35,6 @@ const AllUsers = () => {
         <p className="text-gray-600 text-center">Total Users: {users.length}</p>
       </div>
 
-      {/* Card layout for mobile */}
       <div className="md:hidden space-y-4">
         {users.map((user, index) => (
           <div
@@ -96,7 +88,6 @@ const AllUsers = () => {
         ))}
       </div>
 
-      {/* Table for md and up */}
       <div className="bg-white rounded-xl shadow-xl overflow-hidden border border-gray-200 hidden md:block">
         <div className="overflow-x-auto">
           <table className="min-w-full divide-y divide-gray-200">
