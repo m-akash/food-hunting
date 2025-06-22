@@ -28,7 +28,7 @@ const ContactUs = () => {
     const messageInfo = { name, email, message };
     showLoadingAlert("Sending your message...");
 
-    fetch("http://localhost:3000/api/contact", {
+    fetch("https://hunger-hub-backend.vercel.app/api/contact", {
       method: "POST",
       headers: {
         "content-type": "application/json",

@@ -128,7 +128,7 @@ const router = createBrowserRouter([
           </AdminRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/api/menu/${params.id}`),
+          fetch(`https://hunger-hub-backend.vercel.app/api/menu/${params.id}`),
       },
     ],
   },

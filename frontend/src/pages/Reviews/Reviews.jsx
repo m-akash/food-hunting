@@ -12,7 +12,7 @@ const Reviews = () => {
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/api/review/")
+    fetch("https://hunger-hub-backend.vercel.app/api/review/")
       .then((res) => res.json())
       .then((data) => {
         setReviews(data);

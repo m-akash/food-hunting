@@ -28,7 +28,7 @@ const Register = () => {
       })
       .then(() => {
         const newUser = { name, email, password };
-        fetch("http://localhost:3000/api/users/register", {
+        fetch("https://hunger-hub-backend.vercel.app/api/users/register", {
           method: "POST",
           headers: {
             "content-type": "application/json",

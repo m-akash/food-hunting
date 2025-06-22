@@ -37,7 +37,7 @@ const PaymentHistory = () => {
                 <th>{index + 1}</th>
                 <td>{data.email}</td>
                 <td>{data.transactionId}</td>
-                <td>{data.totalPrice}</td>
+                <td>{data.totalPrice.toFixed(2)}</td>
                 <td>{data.date}</td>
               </tr>
             ))}

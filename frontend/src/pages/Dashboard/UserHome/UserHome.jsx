@@ -1,35 +1,41 @@
-import React from "react";
+import { useEffect, useState } from "react";
+import useCart from "../../../hooks/useCart";
+import useAuth from "../../../hooks/useAuth";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 const UserHome = () => {
-  // Placeholder user data
-  const user = {
-    name: "John Doe",
-    recentOrders: 2,
-    cartItems: 3,
-  };
+  const [cart] = useCart();
+  const { user } = useAuth();
+  const axiosSecure = useAxiosSecure();
+  const [orders, setOrders] = useState([]);
+
+  useEffect(() => {
+    axiosSecure.get(`/payments/payment-history/${user.email}`).then((res) => {
+      setOrders(res.data);
+    });
+  }, [axiosSecure, user.email]);
 
   return (
     <div className="p-6 min-h-[80vh] text-black bg-gray-50 flex flex-col items-center">
       <h1 className="text-3xl font-bold mb-2">
-        Welcome, <span className="text-primary">{user.name}</span>!
+        Welcome, <span className="text-primary">{user?.displayName}</span>!
       </h1>
       <p className="text-gray-600 mb-8">
         Here's a quick look at your dashboard.
       </p>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-4xl mb-10">
-        {/* Recent Orders Card */}
         <div className="bg-white shadow rounded-lg p-6 flex flex-col items-center">
           <span className="text-4xl mb-2">🍽️</span>
           <h2 className="text-xl font-semibold mb-1">Recent Orders</h2>
-          <p className="text-2xl font-bold text-primary">{user.recentOrders}</p>
+          <p className="text-2xl font-bold text-primary">{orders.length}</p>
         </div>
-        {/* Cart Items Card */}
+
         <div className="bg-white shadow rounded-lg p-6 flex flex-col items-center">
           <span className="text-4xl mb-2">🛒</span>
           <h2 className="text-xl font-semibold mb-1">Items in Cart</h2>
-          <p className="text-2xl font-bold text-primary">{user.cartItems}</p>
+          <p className="text-2xl font-bold text-primary">{cart.length}</p>
         </div>
-        {/* Quick Links Card */}
+
         <div className="bg-white shadow rounded-lg p-6 flex flex-col items-center">
           <span className="text-4xl mb-2">⚡</span>
           <h2 className="text-xl font-semibold mb-3">Quick Links</h2>
@@ -46,12 +52,6 @@ const UserHome = () => {
           </div>
         </div>
       </div>
-      {/* Illustration */}
-      <img
-        src="/src/assets/others/Illustration.svg"
-        alt="Dashboard Illustration"
-        className="w-64 h-auto mt-4"
-      />
     </div>
   );
 };

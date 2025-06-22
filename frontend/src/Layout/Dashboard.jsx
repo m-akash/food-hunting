@@ -127,20 +127,6 @@ const Dashboard = () => {
 
                 <li className="py-2">
                   <NavLink
-                    to="/dashboard/payment-history"
-                    className={({ isActive }) =>
-                      `flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 ${
-                        isActive
-                          ? " text-orange-500 shadow-md border-b-2"
-                          : "text-white hover:bg-orange-500 hover:shadow-md"
-                      }`
-                    }
-                  >
-                    <FaHistory className="text-lg" /> Payment History
-                  </NavLink>
-                </li>
-                <li className="py-2">
-                  <NavLink
                     to="/dashboard/cart"
                     className={({ isActive }) =>
                       `flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 ${
@@ -154,7 +140,23 @@ const Dashboard = () => {
                     {cart.length})
                   </NavLink>
                 </li>
+
                 <li className="py-2">
+                  <NavLink
+                    to="/dashboard/payment-history"
+                    className={({ isActive }) =>
+                      `flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 ${
+                        isActive
+                          ? " text-orange-500 shadow-md border-b-2"
+                          : "text-white hover:bg-orange-500 hover:shadow-md"
+                      }`
+                    }
+                  >
+                    <FaHistory className="text-lg" /> Payment History
+                  </NavLink>
+                </li>
+
+                {/* <li className="py-2">
                   <NavLink
                     to="/dashboard/review"
                     className={({ isActive }) =>
@@ -167,7 +169,7 @@ const Dashboard = () => {
                   >
                     <FaStar className="text-lg" /> Add Review
                   </NavLink>
-                </li>
+                </li> */}
               </div>
             )}
 

@@ -5,7 +5,7 @@ const useFoodMenu = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:3000/api/menu")
+    fetch("https://hunger-hub-backend.vercel.app/api/menu")
       .then((res) => res.json())
       .then((data) => {
         setMenu(data);
