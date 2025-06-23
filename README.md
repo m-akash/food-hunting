@@ -2,7 +2,7 @@
 
 A modern, full-stack restaurant management application built with React and Node.js, featuring user authentication, menu management, online ordering, and payment processing.
 
-## 🌟 Features
+## Features
 
 ### Customer Features
 
@@ -23,7 +23,7 @@ A modern, full-stack restaurant management application built with React and Node
 - 💰 Payment history tracking
 - 📈 Sales statistics and reporting
 
-## 🛠️ Technology Stack
+## Technology Stack
 
 ### Frontend
 
@@ -117,6 +117,7 @@ Backend:
 
 ```bash
 cd backend
+npm init
 npm start
 ```
 
@@ -151,5 +152,5 @@ food-hunting/
 
 ## 👥 Authors
 
-- [Mehedi Hasan Akash] - Initial work
+- Mehedi Hasan Akash
 
