@@ -77,6 +77,7 @@ npm install
 
 ```bash
 cd ../backend
+npm init
 npm install
 ```
 
@@ -117,7 +118,6 @@ Backend:
 
 ```bash
 cd backend
-npm init
 npm start
 ```
 
