@@ -79,7 +79,7 @@ const Navbar = () => {
   );
 
   return (
-    <div className="navbar shadow-lg fixed z-20 bg-gradient-to-r from-blue-900/70 to-amber-200/60 backdrop-blur-md border-b border-white/20">
+    <div className="navbar shadow-lg bg-transparent fixed z-20  backdrop-blur-md border-b border-white/20">
       <div className="navbar-start -mr-20">
         <div className="dropdown">
           <div
