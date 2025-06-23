@@ -50,9 +50,9 @@ A modern, full-stack restaurant management application built with React and Node
 
 ## Demo
 
-- Live: https://hunger-hub-2908c.web.app/
-- Frontend code: https://github.com/m-akash/food-hunting/tree/main/frontend
-- Backend code: https://github.com/m-akash/food-hunting/tree/main/backend
+- **Live**: https://hunger-hub-2908c.web.app/
+- **Frontend code**: https://github.com/m-akash/food-hunting/tree/main/frontend
+- **Backend code**: https://github.com/m-akash/food-hunting/tree/main/backend
 
 ## Login Credentials
 
