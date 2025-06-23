@@ -66,6 +66,8 @@ A modern, full-stack restaurant management application built with React and Node
 - **Email**: customer@gmail.com
 - **Password**: Customer@01
 
+<!-- - **Or you can try with your created personal creditials** -->
+
 ## Getting Started
 
 ### Prerequisites
