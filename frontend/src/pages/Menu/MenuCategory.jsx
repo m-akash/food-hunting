@@ -19,7 +19,7 @@ const MenuCategory = ({ items, title }) => {
       <div className="flex justify-center items-center my-8">
         <Link
           to={`/shop/${title}`}
-          className="px-8 py-3 bg-neutral text-white rounded-lg font-medium 
+          className="px-8 py-3 bg-blue-900 text-white rounded-lg font-medium 
           transition-all duration-300 hover:bg-neutral/90 hover:scale-105 
           shadow-lg hover:shadow-xl active:scale-95
           text-center w-full max-w-xs sm:max-w-sm md:max-w-md"

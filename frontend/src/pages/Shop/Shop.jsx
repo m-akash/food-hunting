@@ -29,6 +29,7 @@ const Shop = () => {
   const salad = menu.filter((items) => items.category === "salad");
   const soup = menu.filter((items) => items.category === "soup");
   const drinks = menu.filter((items) => items.category === "drink");
+  
 
   const handleTabSelect = (index) => {
     setTabIndex(index);
@@ -51,26 +52,26 @@ const Shop = () => {
           onSelect={handleTabSelect}
           className="flex flex-col items-center"
         >
-          <TabList className="flex flex-wrap justify-center gap-2 mb-8 p-2 bg-white rounded-lg shadow-md">
-            <Tab className="px-6 py-3 text-lg font-semibold text-gray-600 hover:text-primary cursor-pointer transition-colors duration-300 rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50">
+          <TabList className="flex flex-wrap justify-center gap-2 mb-8 p-2 bg-gradient-to-r from-blue-900 to-amber-300 rounded-lg shadow-md">
+            <Tab className="px-6 py-3 text-lg font-semibold text-black hover:text-primary cursor-pointer transition-colors duration-300 rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50">
               All
             </Tab>
-            <Tab className="px-6 py-3 text-lg font-semibold text-gray-600 hover:text-primary cursor-pointer transition-colors duration-300 rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50">
+            <Tab className="px-6 py-3 text-lg font-semibold text-black hover:text-primary cursor-pointer transition-colors duration-300 rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50">
               Grab the Offer
             </Tab>
-            <Tab className="px-6 py-3 text-lg font-semibold text-gray-600 hover:text-primary cursor-pointer transition-colors duration-300 rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50">
+            <Tab className="px-6 py-3 text-lg font-semibold text-black hover:text-primary cursor-pointer transition-colors duration-300 rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50">
               Salad
             </Tab>
-            <Tab className="px-6 py-3 text-lg font-semibold text-gray-600 hover:text-primary cursor-pointer transition-colors duration-300 rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50">
+            <Tab className="px-6 py-3 text-lg font-semibold text-black hover:text-primary cursor-pointer transition-colors duration-300 rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50">
               Soup
             </Tab>
-            <Tab className="px-6 py-3 text-lg font-semibold text-gray-600 hover:text-primary cursor-pointer transition-colors duration-300 rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50">
+            <Tab className="px-6 py-3 text-lg font-semibold text-black hover:text-primary cursor-pointer transition-colors duration-300 rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50">
               Pizza
             </Tab>
-            <Tab className="px-6 py-3 text-lg font-semibold text-gray-600 hover:text-primary cursor-pointer transition-colors duration-300 rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50">
+            <Tab className="px-6 py-3 text-lg font-semibold text-black hover:text-primary cursor-pointer transition-colors duration-300 rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50">
               Dessert
             </Tab>
-            <Tab className="px-6 py-3 text-lg font-semibold text-gray-600 hover:text-primary cursor-pointer transition-colors duration-300 rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50">
+            <Tab className="px-6 py-3 text-lg font-semibold text-black hover:text-primary cursor-pointer transition-colors duration-300 rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50">
               Drinks
             </Tab>
           </TabList>

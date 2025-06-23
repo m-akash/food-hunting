@@ -12,7 +12,7 @@ import SectionTitle from "../../components/SectionTitle/SectionTitle";
 
 const Categoty = () => {
   return (
-    <section className="max-w-7xl mx-auto px-4 py-12">
+    <section className="max-w-7xl mx-auto px-4">
       <SectionTitle
         subHeading="From 11:00AM to 10:00PM"
         heading="order online"

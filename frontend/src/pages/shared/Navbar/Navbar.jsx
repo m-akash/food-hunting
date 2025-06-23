@@ -244,7 +244,7 @@ const Navbar = () => {
           ) : (
             <button className="btn bg-gradient-to-r from-blue-900 to-amber-400 text-white font-bold shadow hover:scale-105 transition-transform duration-200">
               <Link to="/login" className="text-sm md:text-[16px]">
-                Login / Register
+                Login
               </Link>
             </button>
           )}

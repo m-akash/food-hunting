@@ -66,35 +66,35 @@ const ItemUpdate = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-900 via-purple-900 to-amber-300 flex items-center justify-center py-8">
+    <div className="min-h-screen  flex items-center justify-center py-8">
       <div className="w-full max-w-2xl bg-white/10 backdrop-blur-lg rounded-2xl shadow-2xl p-6 border border-white/20">
         <div className="text-center mb-8">
           <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full mb-4 shadow-lg">
             <FaEdit className="text-2xl text-white" />
           </div>
-          <h1 className="text-2xl md:text-3xl font-bold text-white mb-3">
+          <h1 className="text-2xl md:text-3xl font-bold text-black mb-3">
             Update Menu Item
           </h1>
-          <p className="text-base text-gray-300">
+          <p className="text-base text-gray-900">
             Edit the details below to update this menu item.
           </p>
         </div>
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="group">
-              <label className="flex text-sm font-semibold text-white mb-2 items-center">
+              <label className="flex text-sm font-semibold text-gray-900 mb-2 items-center">
                 <FaUtensils className="w-4 h-4 mr-2 text-yellow-400" />
                 Food Name *
               </label>
               <input
                 type="text"
                 {...register("name", { required: true })}
-                className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-gray-300"
+                className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-gray-900 placeholder-gray-300"
                 placeholder="Enter food name"
               />
             </div>
             <div className="group">
-              <label className="flex text-sm font-semibold text-white mb-2 items-center">
+              <label className="flex text-sm font-semibold text-gray-900 mb-2 items-center">
                 <FaDollarSign className="w-4 h-4 mr-2 text-yellow-400" />
                 Price *
               </label>
@@ -103,19 +103,19 @@ const ItemUpdate = () => {
                 step="0.01"
                 min="0"
                 {...register("price", { required: true })}
-                className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-gray-300"
+                className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-gray-900 placeholder-gray-300"
                 placeholder="0.00"
               />
             </div>
           </div>
           <div className="group">
-            <label className="flex text-sm font-semibold text-white mb-2 items-center">
+            <label className="flex text-sm font-semibold text-gray-900 mb-2 items-center">
               <FaListUl className="w-4 h-4 mr-2 text-yellow-400" />
               Category *
             </label>
             <select
               {...register("category", { required: true })}
-              className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white"
+              className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-gray-900"
             >
               <option value="">Select a category</option>
               <option value="salad">Salad</option>
@@ -128,19 +128,19 @@ const ItemUpdate = () => {
             </select>
           </div>
           <div className="group">
-            <label className="flex text-sm font-semibold text-white mb-2 items-center">
+            <label className="flex text-sm font-semibold text-gray-900 mb-2 items-center">
               <FaFileAlt className="w-4 h-4 mr-2 text-yellow-400" />
               Description *
             </label>
             <textarea
               {...register("desc", { required: true })}
               rows="3"
-              className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-gray-300"
+              className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-gray-900 placeholder-gray-300"
               placeholder="Describe your delicious dish..."
             />
           </div>
           <div className="group">
-            <label className="flex text-sm font-semibold text-white mb-2 items-center">
+            <label className="flex text-sm font-semibold text-gray-900 mb-2 items-center">
               <FaImage className="w-4 h-4 mr-2 text-yellow-400" />
               Food Image *
             </label>
@@ -148,26 +148,26 @@ const ItemUpdate = () => {
               {...register("image")}
               type="file"
               accept="image/*"
-              className="w-full text-white"
+              className="w-full text-gray-900"
             />
           </div>
           <div className="group">
-            <label className="flex text-sm font-semibold text-white mb-2 items-center">
+            <label className="flex text-sm font-semibold text-gray-900 mb-2 items-center">
               <FaFileAlt className="w-4 h-4 mr-2 text-yellow-400" />
               Recipe{" "}
-              <span className="ml-2 text-xs text-gray-400">(Optional)</span>
+              <span className="ml-2 text-xs text-gray-900">(Optional)</span>
             </label>
             <textarea
               {...register("recipe")}
               rows="2"
-              className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-gray-300"
+              className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-gray-900 placeholder-gray-600"
               placeholder="Brief recipe or cooking instructions..."
             />
           </div>
           <div className="pt-4">
             <button
               type="submit"
-              className="w-full bg-gradient-to-r from-blue-400 via-purple-400 to-amber-400 text-white py-3 px-6 rounded-xl font-semibold focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all duration-300 flex items-center justify-center gap-2"
+              className="w-full bg-gradient-to-r from-blue-400 via-purple-400 to-amber-400 text-gray-900 py-3 px-6 rounded-xl font-semibold focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all duration-300 flex items-center justify-center gap-2"
             >
               <FaEdit className="w-5 h-5" />
               Update Item

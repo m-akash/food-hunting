@@ -120,7 +120,7 @@ const ContactUs = () => {
                 <input
                   type="text"
                   name="name"
-                  className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500"
+                  className="w-full px-4 py-2 text-black border rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500"
                   placeholder="Your Name"
                 />
               </div>
@@ -129,7 +129,7 @@ const ContactUs = () => {
                 <input
                   type="email"
                   name="email"
-                  className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500"
+                  className="w-full px-4 py-2 text-black border rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500"
                   placeholder="Your Email"
                 />
               </div>
@@ -138,7 +138,7 @@ const ContactUs = () => {
               <label className="block text-gray-700 mb-2">Message</label>
               <textarea
                 name="message"
-                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 h-32"
+                className="w-full text-black px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 h-32"
                 placeholder="Your Message"
               ></textarea>
             </div>

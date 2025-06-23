@@ -55,7 +55,7 @@ const AddItems = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-900 via-purple-900 to-amber-300 relative overflow-hidden">
+    <div className="min-h-screen relative overflow-hidden">
       <Helmet>
         <title>HungerHub | Add New Item</title>
       </Helmet>
@@ -72,10 +72,10 @@ const AddItems = () => {
             <div className="inline-flex items-center justify-center w-16 h-16 md:w-20 md:h-20 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full mb-4 md:mb-6 shadow-lg">
               <FaPlus className="text-2xl md:text-3xl text-white" />
             </div>
-            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-3 md:mb-4">
+            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-black mb-3 md:mb-4">
               Add New Menu Item
             </h1>
-            <p className="text-base md:text-lg text-gray-300 max-w-2xl mx-auto px-4">
+            <p className="text-base md:text-lg text-gray-900 max-w-2xl mx-auto px-4">
               Create a delicious new dish for your customers. Fill in the
               details below to add it to your menu.
             </p>
@@ -88,7 +88,7 @@ const AddItems = () => {
             >
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                 <div className="group">
-                  <label className="flex text-sm font-semibold text-white mb-3 items-center">
+                  <label className="flex text-sm font-semibold text-gray-900 mb-3 items-center">
                     <FaUtensils className="w-4 h-4 mr-2 text-yellow-400" />
                     Food Name *
                   </label>
@@ -96,7 +96,7 @@ const AddItems = () => {
                     <input
                       type="text"
                       {...register("name", { required: true })}
-                      className="w-full px-4 py-4 bg-white/10 border border-white/20 rounded-xl focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400 transition-all duration-300 text-white placeholder-gray-300 backdrop-blur-sm group-hover:bg-white/15"
+                      className="w-full px-4 py-4 bg-white/10 border border-white/20 rounded-xl focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400 transition-all duration-300 text-gray-900 placeholder-gray-900 backdrop-blur-sm group-hover:bg-white/15"
                       placeholder="Enter food name"
                     />
                     <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-yellow-400/20 to-orange-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
@@ -104,7 +104,7 @@ const AddItems = () => {
                 </div>
 
                 <div className="group">
-                  <label className="flex text-sm font-semibold text-white mb-3 items-center">
+                  <label className="flex text-sm font-semibold text-gray-900 mb-3 items-center">
                     <FaDollarSign className="w-4 h-4 mr-2 text-yellow-400" />
                     Price *
                   </label>
@@ -114,7 +114,7 @@ const AddItems = () => {
                       step="0.01"
                       min="0"
                       {...register("price", { required: true })}
-                      className="w-full px-4 py-4 bg-white/10 border border-white/20 rounded-xl focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400 transition-all duration-300 text-white placeholder-gray-300 backdrop-blur-sm group-hover:bg-white/15"
+                      className="w-full px-4 py-4 bg-white/10 border border-white/20 rounded-xl focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400 transition-all duration-300 text-gray-900 placeholder-gray-900 backdrop-blur-sm group-hover:bg-white/15"
                       placeholder="0.00"
                     />
                     <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-yellow-400/20 to-orange-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
@@ -123,14 +123,14 @@ const AddItems = () => {
               </div>
 
               <div className="group">
-                <label className="flex text-sm font-semibold text-white mb-3 items-center">
+                <label className="flex text-sm font-semibold text-gray-900 mb-3 items-center">
                   <FaListUl className="w-4 h-4 mr-2 text-yellow-400" />
                   Category *
                 </label>
                 <div className="relative">
                   <select
                     {...register("category", { required: true })}
-                    className="w-full px-4 py-4 bg-white/10 border border-white/20 rounded-xl focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400 transition-all duration-300 text-white backdrop-blur-sm group-hover:bg-white/15 appearance-none"
+                    className="w-full px-4 py-4 bg-white/10 border border-white/20 rounded-xl focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400 transition-all duration-900 text-gray-900 backdrop-blur-sm group-hover:bg-white/15 appearance-none"
                   >
                     <option value="" className="text-gray-700">
                       Select a category
@@ -177,16 +177,16 @@ const AddItems = () => {
               </div>
 
               <div className="group">
-                <label className="flex text-sm font-semibold text-white mb-3 items-center">
+                <label className="flex text-sm font-semibold text-gray-900 mb-3 items-center">
                   <FaFileAlt className="w-4 h-4 mr-2 text-yellow-400" />
                   Description *
-                  <span className="ml-2 text-xs text-gray-400">(Optional)</span>
+                  <span className="ml-2 text-xs text-gray-900">(Optional)</span>
                 </label>
                 <div className="relative">
                   <textarea
                     {...register("desc", { required: true })}
                     rows="4"
-                    className="w-full px-4 py-4 bg-white/10 border border-white/20 rounded-xl focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400 transition-all duration-300 text-white placeholder-gray-300 backdrop-blur-sm group-hover:bg-white/15 resize-none"
+                    className="w-full px-4 py-4 bg-white/10 border border-white/20 rounded-xl focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400 transition-all duration-300 text-gray-900 placeholder-gray-900 backdrop-blur-sm group-hover:bg-white/15 resize-none"
                     placeholder="Describe your delicious dish..."
                   />
                   <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-yellow-400/20 to-orange-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
@@ -194,7 +194,7 @@ const AddItems = () => {
               </div>
 
               <div className="group">
-                <label className="flex text-sm font-semibold text-white mb-3 items-center">
+                <label className="flex text-sm font-semibold text-gray-900 mb-3 items-center">
                   <FaImage className="w-4 h-4 mr-2 text-yellow-400" />
                   Food Image *
                 </label>
@@ -208,14 +208,14 @@ const AddItems = () => {
                   />
                   <label
                     htmlFor="image-upload"
-                    className="w-full px-4 py-8 bg-white/10 border-2 border-dashed border-white/30 rounded-xl focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400 transition-all duration-300 text-white backdrop-blur-sm group-hover:bg-white/15 cursor-pointer flex flex-col items-center justify-center hover:border-yellow-400/50"
+                    className="w-full px-4 py-8 bg-white/10 border-2 border-dashed border-white/30 rounded-xl focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400 transition-all duration-300 text-gray-900 backdrop-blur-sm group-hover:bg-white/15 cursor-pointer flex flex-col items-center justify-center hover:border-yellow-400/50"
                   >
                     <FaUpload className="w-8 h-8 mr-2 text-yellow-400 mb-2" />
                     <span className="text-center">
                       <span className="block font-medium">
                         Choose an image or drag & drop
                       </span>
-                      <span className="block text-sm text-gray-300 mt-1">
+                      <span className="block text-sm text-gray-900 mt-1">
                         PNG, JPG, GIF up to 5MB
                       </span>
                     </span>
@@ -225,16 +225,16 @@ const AddItems = () => {
               </div>
 
               <div className="group">
-                <label className="flex text-sm font-semibold text-white mb-3 items-center">
+                <label className="flex text-sm font-semibold text-gray-900 mb-3 items-center">
                   <FaFileAlt className="w-4 h-4 mr-2 text-yellow-400" />
                   Recipe
-                  <span className="ml-2 text-xs text-gray-400">(Optional)</span>
+                  <span className="ml-2 text-xs text-gray-900">(Optional)</span>
                 </label>
                 <div className="relative">
                   <textarea
                     {...register("recipe")}
                     rows="3"
-                    className="w-full px-4 py-4 bg-white/10 border border-white/20 rounded-xl focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400 transition-all duration-300 text-white placeholder-gray-300 backdrop-blur-sm group-hover:bg-white/15 resize-none"
+                    className="w-full px-4 py-4 bg-white/10 border border-white/20 rounded-xl focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400 transition-all duration-300 text-gray-900 placeholder-gray-700 backdrop-blur-sm group-hover:bg-white/15 resize-none"
                     placeholder="Brief recipe or cooking instructions..."
                   />
                   <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-yellow-400/20 to-orange-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>

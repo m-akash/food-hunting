@@ -1,3 +1,4 @@
+import React from "react";
 import useCart from "../../../hooks/useCart";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import {
@@ -71,7 +72,7 @@ const Cart = () => {
         </div>
       </div>
 
-      <div className="bg-white rounded-lg shadow-md overflow-hidden">
+      <div className="bg-white rounded-lg shadow-md overflow-hidden hidden md:block">
         <div className="overflow-x-auto">
           <table className="table w-full">
             <thead className="bg-gray-50">
@@ -132,6 +133,44 @@ const Cart = () => {
             </tbody>
           </table>
         </div>
+      </div>
+
+      <div className="md:hidden space-y-4">
+        {cart.map((item) => (
+          <div
+            key={item.id}
+            className="flex items-center gap-4 p-4 rounded-lg shadow border bg-white"
+          >
+            <div className="avatar flex-shrink-0">
+              <div className="mask mask-squircle h-16 w-16">
+                <img
+                  src={item.foodImg}
+                  alt={item.foodName}
+                  className="object-cover w-full h-full"
+                />
+              </div>
+            </div>
+            <div className="flex-1 flex items-center">
+              <div className="flex flex-col items-center w-full">
+                <div className="font-semibold text-gray-800 text-center">
+                  {item.foodName}
+                </div>
+                <div className="text-sm text-gray-500 text-center">
+                  {item.foodCategory}
+                </div>
+                <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800 mt-1">
+                  ${item.price}
+                </span>
+              </div>
+            </div>
+            <button
+              onClick={() => handleRemoveItem(item.id)}
+              className="btn btn-error btn-xs ml-2"
+            >
+              Remove
+            </button>
+          </div>
+        ))}
       </div>
 
       {cart.length === 0 && (
