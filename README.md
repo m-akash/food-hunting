@@ -1,4 +1,4 @@
-# Food Hunting - Full Stack Restaurant Application 🍽️
+# Food Hunting - Full Stack Restaurant Application
 
 A modern, full-stack restaurant management application built with React and Node.js, featuring user authentication, menu management, online ordering, and payment processing.
 
@@ -6,22 +6,22 @@ A modern, full-stack restaurant management application built with React and Node
 
 ### Customer Features
 
-- 🔐 User authentication with email/password and social login
-- 🍽️ Browse restaurant menu with categories
-- 🛒 Shopping cart functionality
-- 💳 Secure payment processing with Stripe
-- ⭐ Leave reviews and ratings
-- 📱 Responsive design for all devices
-- 📞 Contact form for customer inquiries
+- User authentication with email/password and social login
+- Browse restaurant menu with categories
+- Shopping cart functionality
+- Secure payment processing with Stripe
+- Leave reviews and ratings
+- Responsive design for all devices
+- Contact form for customer inquiries
 
 ### Admin Features
 
-- 📊 Dashboard with statistics and analytics
-- 👥 User management system
-- 🍳 Menu item management (Add, Update, Delete)
-- 📦 Order tracking and management
-- 💰 Payment history tracking
-- 📈 Sales statistics and reporting
+- Dashboard with statistics and analytics
+- User management system
+- Menu item management (Add, Update, Delete)
+- Order tracking and management
+- Payment history tracking
+- Sales statistics and reporting
 
 ## Technology Stack
 
@@ -48,7 +48,7 @@ A modern, full-stack restaurant management application built with React and Node
 - **Firebase Admin** for auth verification
 - **CORS** for cross-origin resource sharing
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -141,7 +141,7 @@ food-hunting/
     └── middlewares/  # Custom middlewares
 ```
 
-## 🔒 Security Features
+## Security Features
 
 - JWT-based authentication
 - Password hashing with Bcrypt
@@ -150,7 +150,7 @@ food-hunting/
 - Admin middleware for authorized access
 - Firebase authentication integration
 
-## 👥 Authors
+## Authors
 
 - Mehedi Hasan Akash
 
