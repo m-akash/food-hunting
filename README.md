@@ -162,4 +162,4 @@ food-hunting/
 
 ## Authors
 
-- Mehedi Hasan Akash
+- [Mehedi Hasan Akash](https://github.com/m-akash)
