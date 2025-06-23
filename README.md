@@ -121,7 +121,7 @@ npm init
 npm start
 ```
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 food-hunting/
