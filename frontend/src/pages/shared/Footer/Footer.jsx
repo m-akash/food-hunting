@@ -78,23 +78,17 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link
-                  to="/restaurants"
-                  className="text-gray-400 hover:text-primary"
-                >
+                <Link className="text-gray-400 hover:text-primary">
                   Restaurants
                 </Link>
               </li>
               <li>
-                <Link to="/about" className="text-gray-400 hover:text-primary">
+                <Link className="text-gray-400 hover:text-primary">
                   About Us
                 </Link>
               </li>
               <li>
-                <Link
-                  to="/contact"
-                  className="text-gray-400 hover:text-primary"
-                >
+                <Link className="text-gray-400 hover:text-primary">
                   Contact
                 </Link>
               </li>
@@ -105,34 +99,20 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-4">Categories</h3>
             <ul className="space-y-2">
               <li>
-                <Link
-                  to="/category/italian"
-                  className="text-gray-400 hover:text-primary"
-                >
+                <Link className="text-gray-400 hover:text-primary">
+                  Bangladeshi
+                </Link>
+              </li>
+              <li>
+                <Link className="text-gray-400 hover:text-primary">
                   Italian
                 </Link>
               </li>
               <li>
-                <Link
-                  to="/category/japanese"
-                  className="text-gray-400 hover:text-primary"
-                >
-                  Japanese
-                </Link>
+                <Link className="text-gray-400 hover:text-primary">Indian</Link>
               </li>
               <li>
-                <Link
-                  to="/category/indian"
-                  className="text-gray-400 hover:text-primary"
-                >
-                  Indian
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/category/mexican"
-                  className="text-gray-400 hover:text-primary"
-                >
+                <Link className="text-gray-400 hover:text-primary">
                   Mexican
                 </Link>
               </li>
