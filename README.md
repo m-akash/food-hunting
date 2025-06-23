@@ -48,6 +48,14 @@ A modern, full-stack restaurant management application built with React and Node
 - **Firebase Admin** for auth verification
 - **CORS** for cross-origin resource sharing
 
+
+## Demo
+
+- Live: https://hunger-hub-2908c.web.app/
+- Frontend code: https://github.com/m-akash/food-hunting/tree/main/frontend
+- Backend code: https://github.com/m-akash/food-hunting/tree/main/backend
+
+
 ## Login Credentials
 
 ### For Admin
@@ -163,11 +171,6 @@ food-hunting/
 - Admin middleware for authorized access
 - Firebase authentication integration
 
-## Demo
-
-- Live: https://hunger-hub-2908c.web.app/
-- Frontend code: https://github.com/m-akash/food-hunting/tree/main/frontend
-- Backend code: https://github.com/m-akash/food-hunting/tree/main/backend
 
 ## Feedback
 
