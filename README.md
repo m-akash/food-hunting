@@ -48,6 +48,19 @@ A modern, full-stack restaurant management application built with React and Node
 - **Firebase Admin** for auth verification
 - **CORS** for cross-origin resource sharing
 
+## Login Credentials
+
+### For Admin
+
+- **Email**: admin@gmail.com
+- **Password**: Admin@01
+
+### For Customer
+
+- **Email**: customer@gmail.com
+- **Password**: Customer@01
+
+
 ## Getting Started
 
 ### Prerequisites
