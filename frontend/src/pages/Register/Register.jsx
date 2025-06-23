@@ -140,11 +140,10 @@ const Register = () => {
                     type="text"
                     name="name"
                     minLength="3"
-                    className="w-full px-4 py-4 bg-white/10 border border-white/20 rounded-xl focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400 transition-all duration-300 text-white placeholder-gray-300 backdrop-blur-sm group-hover:bg-white/15"
+                    className="w-full px-4 py-4 bg-white/10 border border-white/20 rounded-xl focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400 transition-all duration-300 text-white placeholder-gray-300"
                     placeholder="Enter your full name"
                     required
                   />
-                  <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-yellow-400/20 to-orange-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
                 </div>
               </div>
 
@@ -170,11 +169,10 @@ const Register = () => {
                   <input
                     type="email"
                     name="email"
-                    className="w-full px-4 py-4 bg-white/10 border border-white/20 rounded-xl focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400 transition-all duration-300 text-white placeholder-gray-300 backdrop-blur-sm group-hover:bg-white/15"
+                    className="w-full px-4 py-4 bg-white/10 border border-white/20 rounded-xl focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400 transition-all duration-300 text-white placeholder-gray-300"
                     placeholder="Enter your email address"
                     required
                   />
-                  <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-yellow-400/20 to-orange-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
                 </div>
               </div>
 
@@ -200,14 +198,13 @@ const Register = () => {
                   <input
                     type="password"
                     name="password"
-                    className="w-full px-4 py-4 bg-white/10 border border-white/20 rounded-xl focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400 transition-all duration-300 text-white placeholder-gray-300 backdrop-blur-sm group-hover:bg-white/15"
+                    className="w-full px-4 py-4 bg-white/10 border border-white/20 rounded-xl focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400 transition-all duration-300 text-white placeholder-gray-300"
                     placeholder="Create a secure password"
                     minLength="8"
                     pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
                     title="Must be more than 8 characters, including number, lowercase letter, uppercase letter"
                     required
                   />
-                  <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-yellow-400/20 to-orange-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
                 </div>
                 <div className="mt-3 p-3 bg-white/5 rounded-lg border border-white/10">
                   <p className="text-sm text-gray-300 flex items-center">
