@@ -56,12 +56,12 @@ A modern, full-stack restaurant management application built with React and Node
 
 ## Login Credentials
 
-### For Admin
+### Admin
 
 - **Email**: admin@gmail.com
 - **Password**: Admin@01
 
-### For Customer
+### Customer
 
 - **Email**: customer@gmail.com
 - **Password**: Customer@01
@@ -80,7 +80,8 @@ A modern, full-stack restaurant management application built with React and Node
 1. Clone the repository
 
 ```bash
-git clone [https://github.com/m-akash/food-hunting.git]
+git clone https://github.com/m-akash/food-hunting.git
+
 cd food-hunting
 ```
 
