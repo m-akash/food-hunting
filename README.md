@@ -150,7 +150,16 @@ food-hunting/
 - Admin middleware for authorized access
 - Firebase authentication integration
 
+## Demo
+
+- Live: https://hunger-hub-2908c.web.app/
+- Frontend code: https://github.com/m-akash/food-hunting/tree/main/frontend
+- Backend code: https://github.com/m-akash/food-hunting/tree/main/backend
+
+## Feedback
+
+- If you have any feedback, please reach out to [mehedihasan1769@gmail.com](mailto:mehedihasan1769@gmail.com)
+
 ## Authors
 
 - Mehedi Hasan Akash
-
