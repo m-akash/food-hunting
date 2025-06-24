@@ -1,11 +1,11 @@
 require("dotenv").config();
+require("./config/db");
 const express = require("express");
 const app = express();
 const cors = require("cors");
 const jwt = require("jsonwebtoken");
-const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
-require("./config/db");
 const { jwtSecret, jwtExpire } = require("./config/jwt");
+const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
 const userRouter = require("./routers/users.route");
 const menuRouter = require("./routers/menu.route");

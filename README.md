@@ -162,6 +162,121 @@ food-hunting/
     └── middlewares/  # Custom middlewares
 ```
 
+## API Documentation
+
+### Base URL
+
+- For local development: `http://localhost:<PORT>`
+- All API endpoints are prefixed as shown below.
+
+---
+
+### Authentication & JWT
+
+- Obtain a JWT token via `POST /jwt` with user credentials in the body.
+- Use the token in the `Authorization: Bearer <token>` header for protected routes.
+
+---
+
+### User APIs (`/api/users`)
+
+| Method | Endpoint                  | Auth      | Description                       |
+| ------ | ------------------------- | --------- | --------------------------------- |
+| GET    | `/api/users/`             | Admin+JWT | Get all users                     |
+| POST   | `/api/users/register`     | None      | Register a new user               |
+| POST   | `/api/users/login`        | None      | Login with email/password         |
+| POST   | `/api/users/social-login` | None      | Social login                      |
+| PATCH  | `/api/users/admin/:id`    | JWT       | Make a user admin (by user ID)    |
+| GET    | `/api/users/admin/:email` | JWT       | Check if user is admin (by email) |
+| DELETE | `/api/users/:email`       | Admin+JWT | Delete a user (by email)          |
+
+---
+
+### Menu APIs (`/api/menu`)
+
+| Method | Endpoint        | Auth      | Description              |
+| ------ | --------------- | --------- | ------------------------ |
+| GET    | `/api/menu/`    | None      | Get all menu items       |
+| GET    | `/api/menu/:id` | None      | Get a menu item by ID    |
+| POST   | `/api/menu/`    | Admin+JWT | Add a new menu item      |
+| PATCH  | `/api/menu/:id` | Admin+JWT | Update a menu item by ID |
+| DELETE | `/api/menu/:id` | Admin+JWT | Delete a menu item by ID |
+
+---
+
+### Cart APIs (`/api/carts`)
+
+| Method | Endpoint         | Auth | Description                           |
+| ------ | ---------------- | ---- | ------------------------------------- |
+| GET    | `/api/carts/`    | None | Get all cart items (likely by user)   |
+| POST   | `/api/carts/`    | None | Add item to cart                      |
+| DELETE | `/api/carts/:id` | None | Remove item from cart by cart item ID |
+
+---
+
+### Payment APIs (`/payments`)
+
+| Method | Endpoint                           | Auth | Description                               |
+| ------ | ---------------------------------- | ---- | ----------------------------------------- |
+| GET    | `/payments/payment-history/:email` | None | Get payment history for a user (by email) |
+| POST   | `/payments/payment`                | None | Create a payment record                   |
+
+#### Stripe Payment Intent
+
+| Method | Endpoint                 | Auth | Description                                               |
+| ------ | ------------------------ | ---- | --------------------------------------------------------- |
+| POST   | `/create-payment-intent` | None | Create a Stripe payment intent (send `{ price }` in body) |
+
+---
+
+### Review APIs (`/api/review`)
+
+| Method | Endpoint       | Auth | Description      |
+| ------ | -------------- | ---- | ---------------- |
+| GET    | `/api/review/` | None | Get all reviews  |
+| POST   | `/api/review/` | None | Add a new review |
+
+---
+
+### Contact APIs (`/api/contact`)
+
+| Method | Endpoint        | Auth | Description                |
+| ------ | --------------- | ---- | -------------------------- |
+| GET    | `/api/contact/` | None | Get all contact messages   |
+| POST   | `/api/contact/` | None | Send a new contact message |
+
+---
+
+### Admin Stats API (`/admin-stats`)
+
+| Method | Endpoint        | Auth      | Description                    |
+| ------ | --------------- | --------- | ------------------------------ |
+| GET    | `/admin-stats/` | Admin+JWT | Get admin dashboard statistics |
+
+---
+
+### Other Endpoints
+
+| Method | Endpoint | Auth | Description                            |
+| ------ | -------- | ---- | -------------------------------------- |
+| GET    | `/`      | None | Health check (returns "hello")         |
+| POST   | `/jwt`   | None | Get JWT token (send user info in body) |
+
+---
+
+### Error Handling
+
+- 404: Any undefined route returns `{ message: "route not found!" }`
+- 500: Server errors return `{ message: "something broke!" }`
+
+---
+
+#### Notes
+
+- `Admin+JWT` means the endpoint requires a valid JWT and the user must be an admin.
+- For protected endpoints, include the JWT in the `Authorization` header as `Bearer <token>`.
+- Some endpoints may expect specific request body formats (e.g., user registration, payment intent).
+
 ## Security Features
 
 - JWT-based authentication
