@@ -12,8 +12,8 @@ A modern, full-stack restaurant management application built with **TypeScript**
 
 ### Customer Features
 
-- ** Secure Authentication** - Email/password and Google OAuth login
-- ** Responsive Design** - Optimized for all devices
+- **Secure Authentication** - Email/password and Google OAuth login
+- **Responsive Design** - Optimized for all devices
 - ** Menu Browsing** - Browse by categories with beautiful UI
 - ** Shopping Cart** - Add/remove items with real-time updates
 - ** Secure Payments** - Stripe integration for safe transactions
