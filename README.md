@@ -14,52 +14,52 @@ A modern, full-stack restaurant management application built with **TypeScript**
 
 - **Secure Authentication** - Email/password and Google OAuth login
 - **Responsive Design** - Optimized for all devices
-- ** Menu Browsing** - Browse by categories with beautiful UI
-- ** Shopping Cart** - Add/remove items with real-time updates
-- ** Secure Payments** - Stripe integration for safe transactions
-- ** Reviews & Ratings** - Share your dining experience
-- ** Contact Support** - Easy communication with restaurant
-- ** User Profile** - Manage personal information
+- **Menu Browsing** - Browse by categories with beautiful UI
+- **Shopping Cart** - Add/remove items with real-time updates
+- **Secure Payments** - Stripe integration for safe transactions
+- **Reviews & Ratings** - Share your dining experience
+- **Contact Support** - Easy communication with restaurant
+- **User Profile** - Manage personal information
 
 ### Admin Features
 
-- ** Analytics Dashboard** - Sales statistics and user insights
-- ** User Management** - View, promote, and manage users
-- ** Menu Management** - Add, edit, and delete menu items
-- ** Order Tracking** - Monitor and manage all orders
-- ** Payment History** - Complete transaction records
-- ** Sales Reports** - Detailed analytics and reporting
+- **Analytics Dashboard** - Sales statistics and user insights
+- **User Management** - View, promote, and manage users
+- **Menu Management** - Add, edit, and delete menu items
+- **Order Tracking** - Monitor and manage all orders
+- **Payment History** - Complete transaction records
+- **Sales Reports** - Detailed analytics and reporting
 
 ## Technology Stack
 
 ### Frontend (TypeScript)
 
-- ** React 18** with Vite for lightning-fast development
-- ** React Router v6** for seamless navigation
-- ** Tailwind CSS + DaisyUI** for modern, responsive design
-- ** Firebase** for authentication and real-time features
-- ** Stripe** for secure payment processing
-- ** TanStack Query** for efficient data fetching
-- ** React Hook Form** for form validation
-- ** SweetAlert2** for beautiful notifications
-- ** React Helmet** for SEO optimization
+- **React 18** with Vite for lightning-fast development
+- **React Router v6** for seamless navigation
+- **Tailwind CSS + DaisyUI** for modern, responsive design
+- **Firebase** for authentication and real-time features
+- **Stripe** for secure payment processing
+- **TanStack Query** for efficient data fetching
+- **React Hook Form** for form validation
+- **SweetAlert2** for beautiful notifications
+- **React Helmet** for SEO optimization
 
 ### Backend (TypeScript)
 
-- ** Node.js** with Express.js framework
-- ** MongoDB** with Mongoose ODM
-- ** JWT** for secure authentication
-- ** Bcrypt** for password hashing
-- ** Stripe** for payment processing
-- ** Firebase Admin** for auth verification
-- ** CORS** for cross-origin requests
-- ** Multer** for file uploads
+- **Node.js** with Express.js framework
+- **MongoDB** with Mongoose ODM
+- **JWT** for secure authentication
+- **Bcrypt** for password hashing
+- **Stripe** for payment processing
+- **Firebase Admin** for auth verification
+- **CORS** for cross-origin requests
+- **Multer** for file uploads
 
 ## Live Demo
 
-- ** Live Application**: [HungerHub](https://hunger-hub-2908c.web.app/)
-- ** Frontend Repository**: [GitHub Frontend](https://github.com/m-akash/food-hunting/tree/main/frontend)
-- ** Backend Repository**: [GitHub Backend](https://github.com/m-akash/food-hunting/tree/main/backend)
+- **Live Application**: [HungerHub](https://hunger-hub-2908c.web.app/)
+- **Frontend Repository**: [GitHub Frontend](https://github.com/m-akash/food-hunting/tree/main/frontend)
+- **Backend Repository**: [GitHub Backend](https://github.com/m-akash/food-hunting/tree/main/backend)
 
 ## Demo Credentials
 
