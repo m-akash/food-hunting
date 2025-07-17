@@ -113,11 +113,9 @@ const Navbar = () => {
           to="/"
           className="btn btn-ghost btn-primary text-2xl md:text-3xl px-2 md:px-4 drop-shadow-lg"
         >
-          <span className="text-white font-extrabold tracking-wide">
-            Hunger
-          </span>{" "}
+          <span className="text-white font-extrabold tracking-wide">Quick</span>{" "}
           <span className="text-amber-400 font-extrabold tracking-wide">
-            Hub
+            Platter
           </span>
         </Link>
       </div>

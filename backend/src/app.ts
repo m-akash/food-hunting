@@ -1,27 +1,38 @@
-import dotenv from 'dotenv';
-import './config/db';
-import express, { Request, Response, NextFunction } from 'express';
-import cors from 'cors';
-import jwt from 'jsonwebtoken';
-import JWT from './config/jwt';
-import Stripe from 'stripe';
+import dotenv from "dotenv";
+import "./config/db";
+import express, { Request, Response, NextFunction } from "express";
+import cors from "cors";
+import jwt from "jsonwebtoken";
+import JWT from "./config/jwt";
+import Stripe from "stripe";
 
-import userRouter from './routers/users.route';
-import menuRouter from './routers/menu.route';
-import reviewRouter from './routers/reviews.route';
-import contactRouter from './routers/contact.route';
-import cartRouter from './routers/cart.route';
-import paymentRouter from './routers/payment.route';
-import adminStatsRouter from './routers/adminStats.route';
+import userRouter from "./routers/users.route";
+import menuRouter from "./routers/menu.route";
+import reviewRouter from "./routers/reviews.route";
+import contactRouter from "./routers/contact.route";
+import cartRouter from "./routers/cart.route";
+import paymentRouter from "./routers/payment.route";
+import adminStatsRouter from "./routers/adminStats.route";
 
 dotenv.config();
 
 const app = express();
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: '2025-05-28.basil',
+  apiVersion: "2025-05-28.basil",
 });
 
-app.use(cors());
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173",
+      "https://hunger-hub-2908c.web.app",
+      "https://hunger-hub-2908c.firebaseapp.com",
+    ],
+
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    credentials: true,
+  })
+);
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
@@ -40,7 +51,7 @@ app.get("/", (req: Request, res: Response) => {
 app.post("/jwt", async (req: Request, res: Response) => {
   const user = req.body;
   if (!JWT.jwtSecret) {
-    return res.status(500).json({ error: 'JWT secret not configured' });
+    return res.status(500).json({ error: "JWT secret not configured" });
   }
   const token = jwt.sign(
     user,
@@ -64,7 +75,7 @@ app.post("/create-payment-intent", async (req: Request, res: Response) => {
       clientSecret: paymentIntent.client_secret,
     });
   } catch (error) {
-    res.status(500).json({ error: 'Payment intent creation failed' });
+    res.status(500).json({ error: "Payment intent creation failed" });
   }
 });
 
@@ -80,4 +91,4 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
   });
 });
 
-export default app; 
+export default app;

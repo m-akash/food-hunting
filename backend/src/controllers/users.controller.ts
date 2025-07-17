@@ -2,7 +2,6 @@ import { Request, Response } from 'express';
 import { v4 as uuidv4 } from 'uuid';
 import bcrypt from 'bcrypt';
 import users from '../models/users.model';
-import { IUser } from '../models/users.model';
 
 const saltRounds = 10;
 

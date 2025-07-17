@@ -15,24 +15,22 @@ const SocialLogin = () => {
   const axiosPublic = useAxiosPublic();
   const navigate = useNavigate();
 
-  const handleLoginWithGoogle = () => {
+  const handleLoginWithGoogle = async () => {
     showLoadingAlert("Signing in with Google...");
-    loginWithGoogle()
-      .then((result: any) => {
-        const userData = {
-          email: result.user?.email,
-          name: result.user?.displayName,
-        };
-        axiosPublic.post("/api/users/social-login", userData).then(() => {
-          closeLoadingAlert();
-          showSuccessAlert("Successfully signed in with Google!");
-          navigate("/");
-        });
-      })
-      .catch(() => {
-        closeLoadingAlert();
-        showErrorAlert("Failed to sign in with Google. Please try again.");
-      });
+    try {
+      const result: any = await loginWithGoogle();
+      const userData = {
+        email: result.user?.email,
+        name: result.user?.displayName,
+      };
+      await axiosPublic.post("/api/users/social-login", userData);
+      closeLoadingAlert();
+      showSuccessAlert("Successfully signed in with Google!");
+      navigate("/");
+    } catch (error) {
+      closeLoadingAlert();
+      showErrorAlert("Failed to sign in with Google. Please try again.");
+    }
   };
   return (
     <div className="flex justify-center items-center  md:mt-10 ">

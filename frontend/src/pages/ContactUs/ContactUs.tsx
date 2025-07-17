@@ -21,9 +21,10 @@ const ContactUs = () => {
   const handleContactForm = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const form = event.target as HTMLFormElement;
-    const name = (form.elements.namedItem('name') as HTMLInputElement).value;
-    const email = (form.elements.namedItem('email') as HTMLInputElement).value;
-    const message = (form.elements.namedItem('message') as HTMLTextAreaElement).value;
+    const name = (form.elements.namedItem("name") as HTMLInputElement).value;
+    const email = (form.elements.namedItem("email") as HTMLInputElement).value;
+    const message = (form.elements.namedItem("message") as HTMLTextAreaElement)
+      .value;
 
     const messageInfo = { name, email, message };
     showLoadingAlert("Sending your message...");

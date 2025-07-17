@@ -8,6 +8,7 @@ import {
   showLoadingAlert,
   closeLoadingAlert,
 } from "../../utils/alertUtils";
+import SocialLogin from "../shared/SocialLogin/SocialLogin";
 
 const Register = () => {
   const { createUser, logoutUser } = useContext(AuthContext);
@@ -16,9 +17,10 @@ const Register = () => {
   const handleRegister = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const form = event.target as HTMLFormElement;
-    const name = (form.elements.namedItem('name') as HTMLInputElement).value;
-    const email = (form.elements.namedItem('email') as HTMLInputElement).value;
-    const password = (form.elements.namedItem('password') as HTMLInputElement).value;
+    const name = (form.elements.namedItem("name") as HTMLInputElement).value;
+    const email = (form.elements.namedItem("email") as HTMLInputElement).value;
+    const password = (form.elements.namedItem("password") as HTMLInputElement)
+      .value;
 
     showLoadingAlert("Creating your account...");
 
@@ -261,6 +263,7 @@ const Register = () => {
                   </span>
                 </div>
               </div>
+              <SocialLogin></SocialLogin>
 
               {/* Login Link */}
               <div className="text-center">

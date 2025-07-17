@@ -23,8 +23,11 @@ const AuthProvider = ({ children }: ChildrenProps) => {
   const createUser = async (email: string, password: string, name: string) => {
     setLoading(true);
     try {
-      const result = await createUserWithEmailAndPassword(auth, email, password);
-      // Create user in your backend
+      const result = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
       await axiosPublic.post("/api/users/register", { email, password, name });
       setLoading(false);
     } catch (error) {
@@ -48,7 +51,6 @@ const AuthProvider = ({ children }: ChildrenProps) => {
     setLoading(true);
     try {
       const result = await signInWithPopup(auth, provider);
-      // Handle Google login in your backend
       if (result.user) {
         await axiosPublic.post("/api/users/social-login", {
           email: result.user.email,
@@ -74,32 +76,33 @@ const AuthProvider = ({ children }: ChildrenProps) => {
   };
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currentUser: FirebaseUser | null) => {
-      if (currentUser) {
-        // Convert Firebase user to your User type
-        const userInfo: User = {
-          id: currentUser.uid,
-          name: currentUser.displayName || currentUser.email || '',
-          email: currentUser.email || '',
-          createdAt: new Date(),
-          lastLogin: new Date(),
-          role: 'user',
-        };
-        setUser(userInfo);
-        
-        axiosPublic.post("/jwt", { email: currentUser.email }).then((res) => {
-          if (res.data.token) {
-            localStorage.setItem("access-token", res.data.token);
-            setLoading(false);
-          }
-        });
-      } else {
-        setUser(null);
-        localStorage.removeItem("access-token");
-        setLoading(false);
+    const unsubscribe = onAuthStateChanged(
+      auth,
+      (currentUser: FirebaseUser | null) => {
+        if (currentUser) {
+          const userInfo: User = {
+            id: currentUser.uid,
+            name: currentUser.displayName || currentUser.email || "",
+            email: currentUser.email || "",
+            createdAt: new Date(),
+            lastLogin: new Date(),
+            role: "user",
+          };
+          setUser(userInfo);
+          axiosPublic.post("/jwt", { email: currentUser.email }).then((res) => {
+            if (res.data.token) {
+              localStorage.setItem("access-token", res.data.token);
+              setLoading(false);
+            }
+          });
+        } else {
+          setUser(null);
+          localStorage.removeItem("access-token");
+          setLoading(false);
+        }
+        console.log("State Captured: ", currentUser?.email);
       }
-      console.log("State Captured: ", currentUser?.email);
-    });
+    );
     return () => {
       unsubscribe();
     };
